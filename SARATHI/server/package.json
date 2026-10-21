@@ -1,0 +1,35 @@
+{
+  "name": "sarathi-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Recruiter & Employer Portal backend API",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node src/data/migrate.mjs",
+    "seed": "node src/seeder/seeder.mjs",
+    "seed:admin": "node src/seeder/adminSeeder.mjs",
+    "seed:admin-demo": "node src/seeder/adminDemoSeeder.mjs",
+    "test": "node --test --test-concurrency=1 src/test/unit/*.test.mjs src/test/integration/*.test.mjs",
+    "lint": "oxlint src"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.1.0",
+    "google-auth-library": "^11.3.1",
+    "helmet": "^8.3.0",
+    "isolated-vm": "^7.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "uuid": "^11.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "oxlint": "^1.81.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

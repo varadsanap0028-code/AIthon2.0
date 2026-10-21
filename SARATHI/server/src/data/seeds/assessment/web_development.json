@@ -1,0 +1,449 @@
+{
+  "domainId": "web-dev",
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-wd-mcq-01",
+      "skillId": "sk-react",
+      "skillName": "React.js",
+      "category": "Frontend",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which React hook is specifically designed for handling lifecycle side-effects such as subscriptions and manual DOM mutations?",
+      "options": ["useState", "useEffect", "useMemo", "useRef"],
+      "correct": { "index": 1 },
+      "explanation": "useEffect runs after render and is the designated hook for synchronization and side effects in React function components."
+    },
+    {
+      "id": "q-wd-mcq-02",
+      "skillId": "sk-react",
+      "skillName": "React.js",
+      "category": "Frontend",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why should you pass a function to the state setter `setCount(prev => prev + 1)` instead of `setCount(count + 1)` inside asynchronous callbacks?",
+      "options": [
+        "It prevents component re-rendering",
+        "It guarantees access to the latest state value even during batched or concurrent updates",
+        "It forces synchronous execution of the state update",
+        "It automatically memoizes the callback result"
+      ],
+      "correct": { "index": 1 },
+      "explanation": "Functional state updates avoid stale closures by receiving the most recent queued state from React."
+    },
+    {
+      "id": "q-wd-mcq-03",
+      "skillId": "sk-react",
+      "skillName": "React.js",
+      "category": "Frontend",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When optimizing a component with `React.memo`, when will it re-render even if its primitive props have not changed?",
+      "options": [
+        "When an inline object/callback prop is created anew each render and fails reference equality (===)",
+        "Only when the browser window is resized",
+        "Only when the Redux store is completely cleared",
+        "React.memo completely disables re-renders permanently"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "React.memo performs shallow comparison (`Object.is`) on props. Un-memoized object references break shallow equality."
+    },
+    {
+      "id": "q-wd-mcq-04",
+      "skillId": "sk-typescript",
+      "skillName": "TypeScript",
+      "category": "Language",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the primary difference between `unknown` and `any` in TypeScript?",
+      "options": [
+        "unknown requires type narrowing or type assertions before operations can be performed on it; any disables type checking",
+        "any is type-safe whereas unknown allows any runtime operation without checks",
+        "unknown can only store primitive string values",
+        "There is no difference; they are direct aliases"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "unknown is the type-safe counterpart of any, requiring type guards before accessing properties."
+    },
+    {
+      "id": "q-wd-mcq-05",
+      "skillId": "sk-typescript",
+      "skillName": "TypeScript",
+      "category": "Language",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which TypeScript utility type constructs a type with all properties of T set to optional?",
+      "options": ["Required<T>", "Partial<T>", "Record<T, any>", "Readonly<T>"],
+      "correct": { "index": 1 },
+      "explanation": "Partial<T> marks all properties of type T as optional."
+    },
+    {
+      "id": "q-wd-mcq-06",
+      "skillId": "sk-typescript",
+      "skillName": "TypeScript",
+      "category": "Language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the `infer` keyword do inside conditional types in TypeScript?",
+      "options": [
+        "Deduces a type variable within the `extends` clause for extraction",
+        "Forces TypeScript to infer all functions as asynchronous",
+        "Compiles JavaScript directly to WebAssembly",
+        "Suppresses compiler errors for missing exports"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "The infer keyword introduces a type variable to be deduced from another type structure inside conditional types."
+    },
+    {
+      "id": "q-wd-mcq-07",
+      "skillId": "sk-nodejs",
+      "skillName": "Node.js",
+      "category": "Runtime",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In the Node.js event loop, which phase executes callbacks scheduled by `process.nextTick()`?",
+      "options": [
+        "The microtask queue immediately after the current operation finishes, before the next event loop phase",
+        "The Check phase after setImmediate",
+        "The Close callbacks phase at the very end of process exit",
+        "The Poll phase during I/O polling"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "nextTickQueue is resolved immediately after the current operation finishes, preceding the next event loop phase and Promise microtasks."
+    },
+    {
+      "id": "q-wd-mcq-08",
+      "skillId": "sk-nodejs",
+      "skillName": "Node.js",
+      "category": "Runtime",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What happens if a Node.js stream is not paused or piped and data is emitted faster than the consumer can process it?",
+      "options": [
+        "Memory consumption grows unbounded (lack of backpressure)",
+        "Node automatically spawns worker threads to handle overflow",
+        "The stream silently drops all excess packets without error",
+        "The operating system restarts the Node.js process"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Without backpressure handling or proper piping, unconsumed data buffers in memory, leading to memory leaks or process crashes."
+    },
+    {
+      "id": "q-wd-mcq-09",
+      "skillId": "sk-nodejs",
+      "skillName": "Node.js",
+      "category": "Runtime",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which Node.js core module should be used to run CPU-intensive tasks without blocking the main event loop?",
+      "options": ["worker_threads", "events", "http", "dns"],
+      "correct": { "index": 0 },
+      "explanation": "worker_threads enables running JavaScript in parallel on separate threads with shared memory or message passing."
+    },
+    {
+      "id": "q-wd-mcq-10",
+      "skillId": "sk-express",
+      "skillName": "Express.js",
+      "category": "Framework",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What parameters must an Express error-handling middleware function declare?",
+      "options": ["(err, req, res, next)", "(req, res, next)", "(err, res)", "(error, context)"],
+      "correct": { "index": 0 },
+      "explanation": "Express identifies error-handling middleware by checking function.length === 4 (err, req, res, next)."
+    },
+    {
+      "id": "q-wd-mcq-11",
+      "skillId": "sk-express",
+      "skillName": "Express.js",
+      "category": "Framework",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In Express 5, how are rejected promises returned from route handlers handled?",
+      "options": [
+        "Express 5 automatically catches rejected promises and routes them to next(err)",
+        "They crash the server unless wrapped in try/catch or async-error-handler",
+        "They are ignored and client receives HTTP 200 with empty body",
+        "They are stored in localStorage"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Express 5 natively forwards rejected promises returned from route handlers to the error-handling middleware."
+    },
+    {
+      "id": "q-wd-mcq-12",
+      "skillId": "sk-restapi",
+      "skillName": "RESTful API Design",
+      "category": "Architecture",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which HTTP method should be used for idempotent full replacements of a resource?",
+      "options": ["PUT", "POST", "PATCH", "DELETE"],
+      "correct": { "index": 0 },
+      "explanation": "PUT is designated for idempotent updates replacing the entire resource representation."
+    },
+    {
+      "id": "q-wd-mcq-13",
+      "skillId": "sk-restapi",
+      "skillName": "RESTful API Design",
+      "category": "Architecture",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What HTTP status code should be returned when a resource creation succeeds asynchronously and is queued for processing?",
+      "options": ["202 Accepted", "201 Created", "200 OK", "204 No Content"],
+      "correct": { "index": 0 },
+      "explanation": "HTTP 202 Accepted indicates that the request has been received and queued, but processing is not yet complete."
+    },
+    {
+      "id": "q-wd-mcq-14",
+      "skillId": "sk-restapi",
+      "skillName": "RESTful API Design",
+      "category": "Architecture",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What header should be provided to implement optimistic concurrency control and avoid lost updates in REST APIs?",
+      "options": ["If-Match with ETag", "Content-Type", "Accept-Encoding", "User-Agent"],
+      "correct": { "index": 0 },
+      "explanation": "If-Match with an entity tag (ETag) allows the server to verify the resource has not changed before applying updates (returning 412 if mismatched)."
+    },
+    {
+      "id": "q-wd-mcq-15",
+      "skillId": "sk-fullstack-arch",
+      "skillName": "Full-Stack Web Architecture",
+      "category": "Architecture",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the primary purpose of the `HttpOnly` flag on authentication session cookies?",
+      "options": [
+        "Prevents client-side scripts from reading the cookie, mitigating Cross-Site Scripting (XSS) token theft",
+        "Encrypts the packet payload over HTTP without SSL",
+        "Ensures cookies expire after exactly 60 minutes",
+        "Allows cross-origin requests without CORS headers"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "HttpOnly cookies cannot be accessed via document.cookie in JavaScript, protecting authentication tokens from malicious scripts."
+    },
+    {
+      "id": "q-wd-mcq-16",
+      "skillId": "sk-fullstack-arch",
+      "skillName": "Full-Stack Web Architecture",
+      "category": "Architecture",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How does Cross-Site Request Forgery (CSRF) differ from Cross-Site Scripting (XSS)?",
+      "options": [
+        "CSRF tricks the user's browser into executing unwanted actions on an authenticated application; XSS injects malicious client-side code",
+        "CSRF only affects mobile applications while XSS affects web browsers",
+        "CSRF is mitigated purely by HTML sanitization",
+        "There is no difference; both are database injection techniques"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "CSRF exploits ambient credentials (cookies) sent automatically by the browser, whereas XSS executes attacker JavaScript inside the victim's origin."
+    },
+    {
+      "id": "q-wd-mcq-17",
+      "skillId": "sk-nextjs",
+      "skillName": "Next.js",
+      "category": "Framework",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In the Next.js App Router, what is the default rendering paradigm for components in the `app` directory?",
+      "options": [
+        "React Server Components (RSC)",
+        "Client Components ('use client')",
+        "Static HTML without hydration",
+        "Server-Side Rendering using getServerSideProps"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "In Next.js App Router, all components inside the app directory are React Server Components by default unless explicitly marked with 'use client'."
+    },
+    {
+      "id": "q-wd-mcq-18",
+      "skillId": "sk-tailwind",
+      "skillName": "Tailwind CSS",
+      "category": "Styling",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What utility class in Tailwind CSS flexbox layout centers items along the cross-axis?",
+      "options": ["items-center", "justify-center", "content-center", "self-auto"],
+      "correct": { "index": 0 },
+      "explanation": "items-center maps to align-items: center in CSS."
+    },
+    {
+      "id": "q-wd-mcq-19",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the key benefit of using a B-Tree index on a PostgreSQL column?",
+      "options": [
+        "It provides O(log N) lookup, insertion, and range queries for equality and comparisons (<, <=, =, >=, >)",
+        "It compresses all text data by 90%",
+        "It enforces that the table can only contain numeric values",
+        "It replaces the need for foreign keys"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "B-Tree indexes maintain a balanced tree suitable for equality and range query execution."
+    },
+    {
+      "id": "q-wd-mcq-20",
+      "skillId": "sk-jest",
+      "skillName": "Jest / Vitest Automation",
+      "category": "Testing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "When testing asynchronous React components with React Testing Library, which query method should you use to wait for an element that appears after an API call?",
+      "options": ["findByRole / findByText", "getByRole / getByText", "queryByRole (without await)", "getAllByText"],
+      "correct": { "index": 0 },
+      "explanation": "findBy* returns a Promise that rejects on timeout or resolves when the element appears, wrapping waitFor internally."
+    }
+  ],
+  "codingTasks": [
+    {
+      "id": "q-wd-code-01",
+      "skillId": "sk-typescript",
+      "skillName": "TypeScript",
+      "category": "Language",
+      "type": "code",
+      "difficulty": 1,
+      "language": "javascript",
+      "prompt": "Write a function `flattenArray(arr)` that takes an array with nested arrays of arbitrary depth and returns a single flattened 1D array.",
+      "starterCode": "function flattenArray(arr) {\n  // Your implementation here\n}\n\nmodule.exports = { flattenArray };",
+      "visibleTests": [
+        { "id": "t-wd-c01-v1", "kind": "visible", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([1, [2, [3, 4], 5], 6])));", "expectedOutput": "[1,2,3,4,5,6]" },
+        { "id": "t-wd-c01-v2", "kind": "visible", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([])));", "expectedOutput": "[]" },
+        { "id": "t-wd-c01-v3", "kind": "visible", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([1, 2, 3])));", "expectedOutput": "[1,2,3]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-c01-h1", "kind": "hidden", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([[[[1]]]])));", "expectedOutput": "[1]", "weight": 1.0 },
+        { "id": "t-wd-c01-h2", "kind": "hidden", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([1, [null, [undefined]], 2])));", "expectedOutput": "[1,null,null,2]", "weight": 1.0 },
+        { "id": "t-wd-c01-h3", "kind": "hidden", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray([[], [[]], 42])));", "expectedOutput": "[42]", "weight": 1.0 },
+        { "id": "t-wd-c01-h4", "kind": "hidden", "input": "const { flattenArray } = require('./solution'); console.log(JSON.stringify(flattenArray(['a', ['b', ['c']]])));", "expectedOutput": "[\"a\",\"b\",\"c\"]", "weight": 1.0 },
+        { "id": "t-wd-c01-h5", "kind": "hidden", "input": "const { flattenArray } = require('./solution'); console.log(flattenArray(Array.from({length: 100}, (_, i) => [i])).length);", "expectedOutput": "100", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-wd-code-02",
+      "skillId": "sk-nodejs",
+      "skillName": "Node.js",
+      "category": "Runtime",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Implement a function `rateLimiter(windowMs, maxRequests)` that returns a checker function `(ip, timestamp) => boolean`. It must return `true` if the request is permitted within the sliding or fixed window, and `false` if the limit is exceeded.",
+      "starterCode": "function rateLimiter(windowMs, maxRequests) {\n  const clients = new Map();\n  return function isAllowed(ip, timestamp = Date.now()) {\n    // Your implementation here\n  };\n}\n\nmodule.exports = { rateLimiter };",
+      "visibleTests": [
+        { "id": "t-wd-c02-v1", "kind": "visible", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(1000, 2); console.log(check('127.0.0.1', 100), check('127.0.0.1', 200), check('127.0.0.1', 300));", "expectedOutput": "true true false" },
+        { "id": "t-wd-c02-v2", "kind": "visible", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(1000, 1); console.log(check('10.0.0.1', 100), check('10.0.0.2', 150));", "expectedOutput": "true true" },
+        { "id": "t-wd-c02-v3", "kind": "visible", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(500, 1); console.log(check('127.0.0.1', 100), check('127.0.0.1', 700));", "expectedOutput": "true true" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-c02-h1", "kind": "hidden", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(1000, 3); console.log([check('A', 1), check('A', 2), check('A', 3), check('A', 4)].join(','));", "expectedOutput": "true,true,true,false", "weight": 1.0 },
+        { "id": "t-wd-c02-h2", "kind": "hidden", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(1000, 2); check('A', 100); check('A', 200); console.log(check('A', 1200));", "expectedOutput": "true", "weight": 1.0 },
+        { "id": "t-wd-c02-h3", "kind": "hidden", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(2000, 1); console.log(check('ip1', 0), check('ip2', 0), check('ip1', 500), check('ip2', 2500));", "expectedOutput": "true true false true", "weight": 1.0 },
+        { "id": "t-wd-c02-h4", "kind": "hidden", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(500, 2); console.log([check('x', 0), check('x', 100), check('x', 200), check('x', 600)].join(' '));", "expectedOutput": "true true false true", "weight": 1.0 },
+        { "id": "t-wd-c02-h5", "kind": "hidden", "input": "const { rateLimiter } = require('./solution'); const check = rateLimiter(1000, 5); let allowed = 0; for(let i=0; i<10; i++) if (check('bench', 100)) allowed++; console.log(allowed);", "expectedOutput": "5", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-wd-code-03",
+      "skillId": "sk-react",
+      "skillName": "React.js",
+      "category": "Frontend",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Implement a `debounce(fn, delay)` higher-order function that delays invocation until after `delay` milliseconds have elapsed since the last time it was invoked. Include a `.cancel()` method on the returned function.",
+      "starterCode": "function debounce(fn, delay) {\n  let timer = null;\n  function debounced(...args) {\n    // Your code here\n  }\n  debounced.cancel = function() {\n    // Your code here\n  };\n  return debounced;\n}\n\nmodule.exports = { debounce };",
+      "visibleTests": [
+        { "id": "t-wd-c03-v1", "kind": "visible", "input": "const { debounce } = require('./solution'); let count = 0; const fn = debounce(() => { count++; console.log(count); }, 50); fn(); fn(); fn();", "expectedOutput": "" },
+        { "id": "t-wd-c03-v2", "kind": "visible", "input": "const { debounce } = require('./solution'); let res = 0; const fn = debounce((v) => { res = v; }, 20); fn(10); setTimeout(() => { console.log(res); }, 60);", "expectedOutput": "10" },
+        { "id": "t-wd-c03-v3", "kind": "visible", "input": "const { debounce } = require('./solution'); let val = 0; const fn = debounce(() => { val = 99; }, 50); fn(); fn.cancel(); setTimeout(() => { console.log(val); }, 80);", "expectedOutput": "0" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-c03-h1", "kind": "hidden", "input": "const { debounce } = require('./solution'); let calls = 0; const fn = debounce(() => calls++, 30); fn(); setTimeout(fn, 10); setTimeout(() => console.log(calls), 80);", "expectedOutput": "1", "weight": 1.0 },
+        { "id": "t-wd-c03-h2", "kind": "hidden", "input": "const { debounce } = require('./solution'); let latest = ''; const fn = debounce((x) => latest = x, 25); fn('a'); fn('b'); fn('c'); setTimeout(() => console.log(latest), 60);", "expectedOutput": "c", "weight": 1.0 },
+        { "id": "t-wd-c03-h3", "kind": "hidden", "input": "const { debounce } = require('./solution'); let c = 0; const fn = debounce(() => c++, 20); fn(); fn.cancel(); fn(); setTimeout(() => console.log(c), 60);", "expectedOutput": "1", "weight": 1.0 },
+        { "id": "t-wd-c03-h4", "kind": "hidden", "input": "const { debounce } = require('./solution'); let arr = []; const fn = debounce((v) => arr.push(v), 20); fn(1); setTimeout(() => fn(2), 35); setTimeout(() => console.log(arr.join(',')), 80);", "expectedOutput": "1,2", "weight": 1.0 },
+        { "id": "t-wd-c03-h5", "kind": "hidden", "input": "const { debounce } = require('./solution'); const fn = debounce(() => {}, 100); console.log(typeof fn.cancel);", "expectedOutput": "function", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-wd-code-04",
+      "skillId": "sk-restapi",
+      "skillName": "RESTful API Design",
+      "category": "Architecture",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a URL query string parser `parseQuery(queryString)` that decodes URI parameters into an object, properly handling arrays when a key appears multiple times (e.g. `tag=a&tag=b` -> `tag: ['a', 'b']`).",
+      "starterCode": "function parseQuery(queryString) {\n  // Your code here\n}\n\nmodule.exports = { parseQuery };",
+      "visibleTests": [
+        { "id": "t-wd-c04-v1", "kind": "visible", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('foo=bar&num=42')));", "expectedOutput": "{\"foo\":\"bar\",\"num\":\"42\"}" },
+        { "id": "t-wd-c04-v2", "kind": "visible", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('tags=js&tags=node&tags=react')));", "expectedOutput": "{\"tags\":[\"js\",\"node\",\"react\"]}" },
+        { "id": "t-wd-c04-v3", "kind": "visible", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('')));", "expectedOutput": "{}" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-c04-h1", "kind": "hidden", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('greeting=hello%20world')));", "expectedOutput": "{\"greeting\":\"hello world\"}", "weight": 1.0 },
+        { "id": "t-wd-c04-h2", "kind": "hidden", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('?a=1&b=2')));", "expectedOutput": "{\"a\":\"1\",\"b\":\"2\"}", "weight": 1.0 },
+        { "id": "t-wd-c04-h3", "kind": "hidden", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('flag&active=true')));", "expectedOutput": "{\"flag\":\"\",\"active\":\"true\"}", "weight": 1.0 },
+        { "id": "t-wd-c04-h4", "kind": "hidden", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('x=1&x=2')));", "expectedOutput": "{\"x\":[\"1\",\"2\"]}", "weight": 1.0 },
+        { "id": "t-wd-c04-h5", "kind": "hidden", "input": "const { parseQuery } = require('./solution'); console.log(JSON.stringify(parseQuery('email=user%40test.com')));", "expectedOutput": "{\"email\":\"user@test.com\"}", "weight": 1.0 }
+      ]
+    }
+  ],
+  "sqlTasks": [
+    {
+      "id": "q-wd-sql-01",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given a table `orders(id INTEGER, customer_id INTEGER, amount REAL, status TEXT, created_at TEXT)`, write a SELECT query that returns `customer_id` and total spent `total_spent` for all customers who have spent strictly more than 500 in 'completed' orders, ordered by `total_spent` DESC.",
+      "starterCode": "-- Write your SQL query below\nSELECT customer_id, SUM(amount) AS total_spent\nFROM orders\n...",
+      "visibleTests": [
+        { "id": "t-wd-s01-v1", "kind": "visible", "input": "SELECT count(*) FROM (SELECT customer_id FROM orders WHERE status='completed' GROUP BY customer_id HAVING SUM(amount) > 500);", "expectedOutput": "2" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-s01-h1", "kind": "hidden", "input": "SELECT customer_id, round(SUM(amount), 2) as total_spent FROM orders WHERE status='completed' GROUP BY customer_id HAVING SUM(amount) > 500 ORDER BY total_spent DESC LIMIT 1;", "expectedOutput": "101|1250", "weight": 1.0 },
+        { "id": "t-wd-s01-h2", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT customer_id FROM orders WHERE status='cancelled' GROUP BY customer_id HAVING SUM(amount) > 500);", "expectedOutput": "0", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-wd-sql-02",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "sql",
+      "difficulty": 3,
+      "language": "sql",
+      "prompt": "Given tables `users(id, name, created_at)` and `logins(id, user_id, login_time)`, write a query to list users who have logged in at least 3 times in the last 7 days.",
+      "starterCode": "-- Write your SQL query below\nSELECT u.id, u.name, COUNT(l.id) AS login_count\nFROM users u\nJOIN logins l ON u.id = l.user_id\n...",
+      "visibleTests": [
+        { "id": "t-wd-s02-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM users;", "expectedOutput": "5" }
+      ],
+      "hiddenTests": [
+        { "id": "t-wd-s02-h1", "kind": "hidden", "input": "SELECT COUNT(*) FROM (SELECT user_id FROM logins GROUP BY user_id HAVING count(*) >= 3);", "expectedOutput": "2", "weight": 1.0 }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "q-wd-proj-01",
+      "skillId": "sk-fullstack-arch",
+      "skillName": "Full-Stack Web Architecture",
+      "category": "Architecture",
+      "type": "project",
+      "difficulty": 3,
+      "prompt": "Mini-Project: Design and implement a secure User Registration and JWT Auth endpoint in Node.js/Express. Requirements:\n1. POST /api/register with email and password.\n2. Validates email format and password minimum 8 characters.\n3. Hashes password using bcrypt.\n4. Rejects duplicate emails with HTTP 409 Conflict.\n5. Returns HTTP 201 with `{ user: { id, email } }` and sets an HttpOnly cookie.",
+      "rubric": [
+        { "key": "functionality", "label": "Endpoint Functionality", "weight": 35, "description": "Registers users with correct HTTP status codes (201, 400, 409)." },
+        { "key": "correctness", "label": "Password Hashing & Security", "weight": 25, "description": "Bcrypt hashing with proper salt rounds; passwords never stored or returned in plain text." },
+        { "key": "quality", "label": "Error Handling & Input Validation", "weight": 20, "description": "Structured JSON error responses for malformed email, weak passwords, and database exceptions." },
+        { "key": "problem_solving", "label": "Session & Token Architecture", "weight": 20, "description": "Clean JWT payload design with HttpOnly, SameSite, and Secure cookie flags." }
+      ]
+    }
+  ]
+}

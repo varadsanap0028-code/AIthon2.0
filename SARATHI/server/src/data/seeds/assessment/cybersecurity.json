@@ -1,0 +1,489 @@
+{
+  "domainId": "cybersecurity",
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-sec-mcq-01",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the primary defense against SQL Injection vulnerabilities in backend database queries?",
+      "options": [
+        "Parameterized queries / Prepared statements with parameterized arguments",
+        "Encoding user input with base64 before inserting into the query string",
+        "Using HTTP POST instead of GET",
+        "Restricting database connection strings to localhost"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Parameterized queries separate the SQL command code from user data, ensuring input is treated as literal parameter values rather than executable syntax."
+    },
+    {
+      "id": "q-sec-mcq-02",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How does Stored Cross-Site Scripting (Stored XSS) differ from Reflected XSS?",
+      "options": [
+        "Stored XSS is permanently saved in the database or server storage and delivered to every user requesting that page; Reflected XSS requires the payload to be delivered in the immediate request (e.g. search query parameter)",
+        "Reflected XSS only affects mobile applications",
+        "Stored XSS cannot steal authentication tokens",
+        "Reflected XSS requires administrative server access"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Stored XSS persists on the backend (e.g. forum post or profile comment), executing whenever victims load the stored content."
+    },
+    {
+      "id": "q-sec-mcq-03",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What HTTP response header instructs modern browsers to restrict resources (scripts, styles, images) to trusted origins, mitigating XSS?",
+      "options": [
+        "Content-Security-Policy (CSP)",
+        "X-Frame-Options",
+        "Strict-Transport-Security (HSTS)",
+        "Access-Control-Allow-Origin"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Content-Security-Policy defines trusted sources for script execution, blocking inline script injections and unauthorized domains."
+    },
+    {
+      "id": "q-sec-mcq-04",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In penetration testing, what is the objective of the Reconnaissance / OSINT phase?",
+      "options": [
+        "Gathering passive and active intelligence about the target organization (subdomains, open ports, employee emails, tech stack) before active exploitation",
+        "Deploying ransomware immediately",
+        "Formatting all hard drives on the target",
+        "Installing keyloggers on the CEO workstation"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Reconnaissance gathers target infrastructure intelligence to map the attack surface and identify potential attack vectors."
+    },
+    {
+      "id": "q-sec-mcq-05",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is a SYN Stealth Scan (`nmap -sS`) and why is it frequently used?",
+      "options": [
+        "It sends a TCP SYN packet and teardowns the connection with RST upon receiving SYN-ACK without completing the 3-way handshake, avoiding application-level logging",
+        "It connects via SSH and runs system diagnostics",
+        "It scans over UDP exclusively",
+        "It automatically cracks root passwords"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "SYN scanning probes open ports by sending RST immediately upon receiving SYN-ACK, never completing the full TCP handshake."
+    },
+    {
+      "id": "q-sec-mcq-06",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What vulnerability allows an attacker to manipulate server-side code into making arbitrary HTTP requests to internal, non-routable services (e.g. AWS metadata `169.254.169.254`)?",
+      "options": [
+        "Server-Side Request Forgery (SSRF)",
+        "Cross-Site Scripting (XSS)",
+        "Insecure Direct Object References (IDOR)",
+        "Cross-Origin Resource Sharing (CORS) misconfiguration"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "SSRF tricks the backend server into sending requests to loopback addresses or internal microservices inaccessible from the public internet."
+    },
+    {
+      "id": "q-sec-mcq-07",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is Insecure Direct Object Reference (IDOR / BOLA)?",
+      "options": [
+        "An application exposes a direct database key or identifier in a request without validating that the authenticated user possesses authorization to access that object",
+        "Using public Wi-Fi without a VPN",
+        "Storing passwords using MD5",
+        "Running unencrypted HTTP on port 80"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "IDOR occurs when an API accepts an object ID (e.g. GET /api/invoice/456) without enforcing that user 123 owns invoice 456."
+    },
+    {
+      "id": "q-sec-mcq-08",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why should password hashing algorithms like Argon2id or bcrypt be used instead of fast cryptographic hashes like SHA-256 or SHA-512?",
+      "options": [
+        "Argon2 and bcrypt have configurable work factors (cost) and memory requirements designed to be computationally expensive, neutralizing GPU and ASIC brute-force attacks",
+        "SHA-256 is deprecated and cannot hash strings over 10 characters",
+        "bcrypt hashes are completely reversible by administrators",
+        "SHA-512 does not support salting"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Fast hashes allow billions of guesses per second on consumer GPUs; slow, memory-hard key derivation functions (KDFs) make offline cracking intractable."
+    },
+    {
+      "id": "q-sec-mcq-09",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is a 'Reverse Shell'?",
+      "options": [
+        "A connection where the compromised target machine initiates an outbound network connection back to the attacker's listening machine, bypassing inbound firewall rules",
+        "An attacker connecting directly to the victim's SSH port",
+        "A shell script written in reverse alphabetical order",
+        "A hardware dongle plugged into the USB port"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Outbound egress traffic is frequently permitted by corporate firewalls, allowing reverse shells to establish interactive command sessions where inbound connections would be blocked."
+    },
+    {
+      "id": "q-sec-mcq-10",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is Privilege Escalation in ethical hacking?",
+      "options": [
+        "Exploiting design flaws or software bugs to gain higher level access (e.g. root/administrator) from an initially compromised low-privileged account",
+        "Promoting an employee to an executive role",
+        "Increasing the memory allocation of a virtual machine",
+        "Bypassing MFA during legitimate user login"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Vertical privilege escalation involves advancing privileges from a standard user to root/SYSTEM by exploiting misconfigurations, SUID binaries, or kernel flaws."
+    },
+    {
+      "id": "q-sec-mcq-11",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does the `SameSite=Strict` cookie attribute enforce?",
+      "options": [
+        "The browser never sends the cookie in cross-site requests, providing robust protection against CSRF",
+        "The cookie can only be read over HTTPS",
+        "The cookie expires after 10 minutes",
+        "JavaScript can read the cookie from any origin"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "SameSite=Strict ensures the cookie is withheld on cross-site requests (including standard incoming links), preventing CSRF."
+    },
+    {
+      "id": "q-sec-mcq-12",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is an XML External Entity (XXE) injection attack?",
+      "options": [
+        "Attacking an application that parses XML input where external entity references are resolved, enabling arbitrary local file disclosure or SSRF",
+        "Injecting SQL statements into HTML tags",
+        "Overwriting JSON schema definitions",
+        "Flooding XML web services with UDP traffic"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "XXE exploits weakly configured XML parsers that expand external entity definitions (e.g. <!ENTITY xxe SYSTEM 'file:///etc/passwd'>)."
+    },
+    {
+      "id": "q-sec-mcq-13",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the difference between asymmetric and symmetric cryptography?",
+      "options": [
+        "Symmetric uses the same secret key for encryption and decryption; Asymmetric uses a mathematically linked public-private key pair",
+        "Asymmetric uses a single key; Symmetric uses two keys",
+        "Symmetric is only used for digital signatures",
+        "Asymmetric is 1,000 times faster than symmetric algorithms"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Symmetric algorithms (e.g. AES) use a shared secret; asymmetric algorithms (e.g. RSA, ECC) use public keys for encryption/verification and private keys for decryption/signing."
+    },
+    {
+      "id": "q-sec-mcq-14",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the purpose of HSTS (HTTP Strict Transport Security)?",
+      "options": [
+        "Informs browsers that the site must only be accessed over HTTPS, preventing SSL stripping and downgrade attacks",
+        "Compresses HTTP body payloads",
+        "Caches static assets in browser memory",
+        "Restricts access by geographic IP range"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "HSTS header forces user-agents to automatically convert all http:// links to https:// before sending network requests."
+    },
+    {
+      "id": "q-sec-mcq-15",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is a 'Pass-the-Hash' (PtH) attack in an Active Directory environment?",
+      "options": [
+        "An attacker uses an extracted NTLM password hash directly to authenticate to remote services without needing to crack or know the plain text password",
+        "Sending MD5 hashes in HTTP request headers",
+        "Modifying cryptographic salts in the database",
+        "Brute forcing Kerberos ticket expiration dates"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Because Windows NTLM authentication protocol proves identity using the password hash directly, possessing the hash is sufficient to authenticate across the domain."
+    },
+    {
+      "id": "q-sec-mcq-16",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is Cross-Origin Resource Sharing (CORS) intended to do?",
+      "options": [
+        "Allow web servers to explicitly declare which foreign origins are permitted to read its responses, relaxing the browser's default Same-Origin Policy",
+        "Prevent server-side SQL injection",
+        "Block search engines from indexing pages",
+        "Encrypt database backups"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "CORS is a browser security mechanism that enables servers to selectively authorize cross-origin HTTP requests."
+    },
+    {
+      "id": "q-sec-mcq-17",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which tool is standard for intercepting, modifying, and inspecting web application HTTP traffic during security testing?",
+      "options": ["Burp Suite / OWASP ZAP", "Wireshark exclusively", "Metasploit", "Vim"],
+      "correct": { "index": 0 },
+      "explanation": "Burp Suite and OWASP ZAP act as local HTTP intercepting proxies allowing detailed inspection and manipulation of web requests."
+    },
+    {
+      "id": "q-sec-mcq-18",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is Mass Assignment vulnerability?",
+      "options": [
+        "Binding client-provided HTTP request parameters directly into database model instances without filtering, allowing attackers to overwrite protected fields like `is_admin`",
+        "Assigning tasks to multiple security analysts simultaneously",
+        "Sending emails to 10,000 recipients at once",
+        "Running multiple unit tests in parallel"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Mass assignment occurs when ORM frameworks blindly bind all JSON properties to entity models, allowing attackers to set privileged attributes."
+    },
+    {
+      "id": "q-sec-mcq-19",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In public key infrastructure, what does Certificate Transparency (CT) provide?",
+      "options": [
+        "An open public framework of append-only cryptographic log servers that monitor and audit TLS certificate issuance to detect rogue or fraudulent certificates",
+        "A method to disclose private keys to law enforcement",
+        "A way to bypass HTTPS warning screens",
+        "A protocol to encrypt DNS queries"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Certificate Transparency logs ensure that domain owners can audit which certificate authorities have issued certificates for their domain."
+    },
+    {
+      "id": "q-sec-mcq-20",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Why should sensitive credentials never be stored directly in Git repositories?",
+      "options": [
+        "Git commit history permanently retains secrets even if the file is modified or removed in later commits, exposing them to anyone with repository access",
+        "Git encrypts all repositories automatically",
+        "Credentials slow down git pull speed",
+        "Git repositories reject files with API keys"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Git commits are immutable snapshots; secrets remain in git history and packfiles indefinitely unless purged with rewriting tools like git-filter-repo."
+    }
+  ],
+  "codingTasks": [
+    {
+      "id": "q-sec-code-01",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "code",
+      "difficulty": 1,
+      "language": "javascript",
+      "prompt": "Write a function `sanitizeHtml(rawString)` that escapes dangerous HTML characters (`&`, `<`, `>`, `\"`, `'`) to their corresponding HTML entities to prevent Cross-Site Scripting (XSS).",
+      "starterCode": "function sanitizeHtml(rawString) {\n  // Your implementation here\n}\n\nmodule.exports = { sanitizeHtml };",
+      "visibleTests": [
+        { "id": "t-sec-c01-v1", "kind": "visible", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('<script>alert(1)</script>'));", "expectedOutput": "&lt;script&gt;alert(1)&lt;/script&gt;" },
+        { "id": "t-sec-c01-v2", "kind": "visible", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('Tom & Jerry'));", "expectedOutput": "Tom &amp; Jerry" },
+        { "id": "t-sec-c01-v3", "kind": "visible", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('\"hello\"'));", "expectedOutput": "&quot;hello&quot;" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-c01-h1", "kind": "hidden", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('foo\\'bar'));", "expectedOutput": "foo&#39;bar", "weight": 1.0 },
+        { "id": "t-sec-c01-h2", "kind": "hidden", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml(''));", "expectedOutput": "", "weight": 1.0 },
+        { "id": "t-sec-c01-h3", "kind": "hidden", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('plain text 123'));", "expectedOutput": "plain text 123", "weight": 1.0 },
+        { "id": "t-sec-c01-h4", "kind": "hidden", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('<img src=\"x\" onerror=\\'evil()\\'>'));", "expectedOutput": "&lt;img src=&quot;x&quot; onerror=&#39;evil()&#39;&gt;", "weight": 1.0 },
+        { "id": "t-sec-c01-h5", "kind": "hidden", "input": "const { sanitizeHtml } = require('./solution'); console.log(sanitizeHtml('&&'));", "expectedOutput": "&amp;&amp;", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-sec-code-02",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `validatePasswordStrength(password)` that validates password complexity: minimum 8 characters, at least one uppercase letter, one lowercase letter, one digit, and one special character (any of `!@#$%^&*`). Return `{ valid: boolean, errors: string[] }`.",
+      "starterCode": "function validatePasswordStrength(password) {\n  // Your code here\n}\n\nmodule.exports = { validatePasswordStrength };",
+      "visibleTests": [
+        { "id": "t-sec-c02-v1", "kind": "visible", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('P@ssw0rd123').valid);", "expectedOutput": "true" },
+        { "id": "t-sec-c02-v2", "kind": "visible", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('weak').valid);", "expectedOutput": "false" },
+        { "id": "t-sec-c02-v3", "kind": "visible", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('NoSpecial123').valid);", "expectedOutput": "false" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-c02-h1", "kind": "hidden", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('alllowercase!1').valid);", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-sec-c02-h2", "kind": "hidden", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('ALLUPPERCASE!1').valid);", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-sec-c02-h3", "kind": "hidden", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('NoDigits!Abc').valid);", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-sec-c02-h4", "kind": "hidden", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('').valid);", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-sec-c02-h5", "kind": "hidden", "input": "const { validatePasswordStrength } = require('./solution'); console.log(validatePasswordStrength('S3cure!K3y').valid);", "expectedOutput": "true", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-sec-code-03",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `isPathTraversal(pathString)` that inspects a requested relative filepath and returns `true` if it attempts directory traversal (e.g. contains `..`, URL-encoded `%2e%2e`, or backslashes escaping boundaries), or `false` if it is a safe local filename.",
+      "starterCode": "function isPathTraversal(pathString) {\n  // Your code here\n}\n\nmodule.exports = { isPathTraversal };",
+      "visibleTests": [
+        { "id": "t-sec-c03-v1", "kind": "visible", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('../etc/passwd'));", "expectedOutput": "true" },
+        { "id": "t-sec-c03-v2", "kind": "visible", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('avatar.png'));", "expectedOutput": "false" },
+        { "id": "t-sec-c03-v3", "kind": "visible", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('docs/report.pdf'));", "expectedOutput": "false" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-c03-h1", "kind": "hidden", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('..\\\\windows\\\\system32'));", "expectedOutput": "true", "weight": 1.0 },
+        { "id": "t-sec-c03-h2", "kind": "hidden", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('%2e%2e/secret'));", "expectedOutput": "true", "weight": 1.0 },
+        { "id": "t-sec-c03-h3", "kind": "hidden", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('/etc/shadow'));", "expectedOutput": "true", "weight": 1.0 },
+        { "id": "t-sec-c03-h4", "kind": "hidden", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('valid-file_123.txt'));", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-sec-c03-h5", "kind": "hidden", "input": "const { isPathTraversal } = require('./solution'); console.log(isPathTraversal('.'));", "expectedOutput": "false", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-sec-code-04",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `maskSensitiveData(record, sensitiveKeys)` that takes an object and returns a shallow copy where values for any keys in `sensitiveKeys` are masked with `'***REDACTED***'`. If a key does not exist, ignore it.",
+      "starterCode": "function maskSensitiveData(record, sensitiveKeys) {\n  // Your implementation here\n}\n\nmodule.exports = { maskSensitiveData };",
+      "visibleTests": [
+        { "id": "t-sec-c04-v1", "kind": "visible", "input": "const { maskSensitiveData } = require('./solution'); console.log(JSON.stringify(maskSensitiveData({ user: 'alice', ssn: '123-45' }, ['ssn'])));", "expectedOutput": "{\"user\":\"alice\",\"ssn\":\"***REDACTED***\"}" },
+        { "id": "t-sec-c04-v2", "kind": "visible", "input": "const { maskSensitiveData } = require('./solution'); console.log(JSON.stringify(maskSensitiveData({ id: 1 }, ['card'])));", "expectedOutput": "{\"id\":1}" },
+        { "id": "t-sec-c04-v3", "kind": "visible", "input": "const { maskSensitiveData } = require('./solution'); console.log(JSON.stringify(maskSensitiveData({}, [])));", "expectedOutput": "{}" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-c04-h1", "kind": "hidden", "input": "const { maskSensitiveData } = require('./solution'); const orig = { k: 'secret' }; maskSensitiveData(orig, ['k']); console.log(orig.k);", "expectedOutput": "secret", "weight": 1.0 },
+        { "id": "t-sec-c04-h2", "kind": "hidden", "input": "const { maskSensitiveData } = require('./solution'); console.log(maskSensitiveData({ p: 'pwd', t: 'tok' }, ['p', 't']).p);", "expectedOutput": "***REDACTED***", "weight": 1.0 },
+        { "id": "t-sec-c04-h3", "kind": "hidden", "input": "const { maskSensitiveData } = require('./solution'); console.log(Object.keys(maskSensitiveData({ a: 1, b: 2 }, ['b'])).join(','));", "expectedOutput": "a,b", "weight": 1.0 },
+        { "id": "t-sec-c04-h4", "kind": "hidden", "input": "const { maskSensitiveData } = require('./solution'); console.log(maskSensitiveData({ a: null }, ['a']).a);", "expectedOutput": "***REDACTED***", "weight": 1.0 },
+        { "id": "t-sec-c04-h5", "kind": "hidden", "input": "const { maskSensitiveData } = require('./solution'); console.log(typeof maskSensitiveData({}, []));", "expectedOutput": "object", "weight": 1.0 }
+      ]
+    }
+  ],
+  "sqlTasks": [
+    {
+      "id": "q-sec-sql-01",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given table `security_audit_logs(id, user_id, action, ip_address, status, created_at)`, write a query to find IP addresses that have caused more than 3 'failed_login' events in the last 24 hours.",
+      "starterCode": "-- Write SQL query here\nSELECT ip_address, COUNT(*) AS failure_count\nFROM security_audit_logs\n...",
+      "visibleTests": [
+        { "id": "t-sec-s01-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM security_audit_logs WHERE status='failed_login';", "expectedOutput": "5" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-s01-h1", "kind": "hidden", "input": "SELECT ip_address FROM security_audit_logs WHERE status='failed_login' GROUP BY ip_address HAVING count(*) > 3 LIMIT 1;", "expectedOutput": "198.51.100.45", "weight": 1.0 },
+        { "id": "t-sec-s01-h2", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT ip_address FROM security_audit_logs WHERE status='failed_login' GROUP BY ip_address HAVING count(*) > 3);", "expectedOutput": "1", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-sec-sql-02",
+      "skillId": "sk-pentest",
+      "skillName": "Penetration Testing",
+      "category": "Cybersecurity",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given table `user_privileges(id, user_id, role, granted_at)`, write a query to list all user_ids who possess more than 1 distinct administrative role.",
+      "starterCode": "-- Write SQL query here\nSELECT user_id, COUNT(DISTINCT role) AS admin_roles\nFROM user_privileges\n...",
+      "visibleTests": [
+        { "id": "t-sec-s02-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM user_privileges;", "expectedOutput": "6" }
+      ],
+      "hiddenTests": [
+        { "id": "t-sec-s02-h1", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT user_id FROM user_privileges GROUP BY user_id HAVING count(DISTINCT role) > 1);", "expectedOutput": "2", "weight": 1.0 }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "q-sec-proj-01",
+      "skillId": "sk-owasp",
+      "skillName": "OWASP Security Best Practices",
+      "category": "Cybersecurity",
+      "type": "project",
+      "difficulty": 3,
+      "prompt": "Mini-Project: Web Application Vulnerability Remediation & Hardening Plan.\nReview a vulnerable Node.js/Express endpoint and implement security defenses:\n1. Fix SQL Injection using parameterized queries.\n2. Remediate Reflected XSS with output encoding.\n3. Implement Helmet security headers (CSP, HSTS, X-Frame-Options).\n4. Add IP-based rate limiting on sensitive auth endpoints.\n5. Enforce strong session cookie configurations (HttpOnly, Secure, SameSite=Strict).",
+      "rubric": [
+        { "key": "functionality", "label": "Vulnerability Remediation", "weight": 35, "description": "Eliminates SQL injection and XSS through parameterized inputs and contextual output sanitization." },
+        { "key": "correctness", "label": "Security Headers & CSP", "weight": 25, "description": "Correctly configures strict Content-Security-Policy, HSTS, and X-Content-Type-Options." },
+        { "key": "quality", "label": "Session & Cookie Hardening", "weight": 20, "description": "Proper cookie flags (HttpOnly, SameSite=Strict, Secure) and credential protection." },
+        { "key": "problem_solving", "label": "Brute Force & Rate Limiting", "weight": 20, "description": "Implements robust request rate limiting to deter automated credential stuffing." }
+      ]
+    }
+  ]
+}

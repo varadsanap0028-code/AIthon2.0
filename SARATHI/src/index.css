@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand & Accent Colors */
+    --color-primary: #087BFA;
+    --color-primary-hover: #0068DE;
+    --color-primary-soft: #EFF6FF;
+    --color-purple: #603DF5;
+    --color-purple-hover: #4C26E0;
+    --color-purple-soft: #F5F3FF;
+    --color-indigo: #4F46E5;
+    --color-indigo-hover: #4338CA;
+    --color-indigo-soft: #EEF2FF;
+    --color-navy: #0B1B43;
+    --color-navy-dark: #07122E;
+    --color-bg-soft: #F4F7FC;
+    --color-bg-card: #FFFFFF;
+    --color-text-main: #0B1B43;
+    --color-text-muted: #405B8B;
+    --color-border: #E0E7F2;
+    --color-border-subtle: #EDF2F9;
+
+    /* Semantic Status Colors */
+    --color-success: #16A34A;
+    --color-success-soft: #F0FDF4;
+    --color-warning: #D97706;
+    --color-warning-soft: #FFFBEB;
+    --color-error: #DC2626;
+    --color-error-soft: #FEF2F2;
+
+    /* Spacing & Radii Design Tokens */
+    --radius-badge: 0.5rem;    /* 8px */
+    --radius-button: 0.75rem;  /* 12px */
+    --radius-card: 1rem;       /* 16px */
+    --radius-modal: 1.25rem;   /* 20px */
+    --radius-pill: 9999px;
+
+    /* Elevation Shadows */
+    --shadow-card: 0 1px 3px 0 rgba(11, 27, 67, 0.04), 0 1px 2px -1px rgba(11, 27, 67, 0.04);
+    --shadow-card-hover: 0 10px 15px -3px rgba(11, 27, 67, 0.07), 0 4px 6px -4px rgba(11, 27, 67, 0.05);
+    --shadow-modal: 0 20px 25px -5px rgba(11, 27, 67, 0.15), 0 8px 10px -6px rgba(11, 27, 67, 0.1);
+  }
+
+  body {
+    background-color: var(--color-bg-soft);
+    color: var(--color-text-main);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@theme {
+  --color-sarathi-blue: #087BFA;
+  --color-sarathi-blue-soft: #EFF6FF;
+  --color-sarathi-purple: #603DF5;
+  --color-sarathi-purple-soft: #F5F3FF;
+  --color-sarathi-indigo: #4F46E5;
+  --color-sarathi-indigo-soft: #EEF2FF;
+  --color-sarathi-navy: #0B1B43;
+  --color-sarathi-bg: #F4F7FC;
+  --color-sarathi-muted: #405B8B;
+  --color-sarathi-border: #E0E7F2;
+  --color-sarathi-success: #16A34A;
+  --color-sarathi-warning: #D97706;
+  --color-sarathi-danger: #DC2626;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F7FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Print styles for Skill Passport */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+
+  .print-card {
+    border: 1px solid #E0E7F2 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "domainId": "data-science",
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-ds-mcq-01",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does a high p-value (typically > 0.05) indicate in a hypothesis test?",
+      "options": [
+        "Fails to reject the null hypothesis; observed differences are plausibly due to random sampling chance",
+        "The model has 95% classification accuracy",
+        "The alternative hypothesis is proven true",
+        "The sample size was too large"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "A p-value measures the probability of observing data at least as extreme assuming the null hypothesis is true; >0.05 indicates insufficient evidence to reject the null."
+    },
+    {
+      "id": "q-ds-mcq-02",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the key difference between a Transformation and an Action in Apache Spark?",
+      "options": [
+        "Transformations are lazily evaluated and return a new DataFrame/RDD; Actions trigger execution and return results to the driver or write to storage",
+        "Transformations write data to disk immediately; Actions run in memory only",
+        "Actions create Spark sessions; Transformations close them",
+        "There is no difference"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Spark builds a DAG of lazy transformations (e.g. map, filter) and executes only when an action (e.g. count, collect, write) is invoked."
+    },
+    {
+      "id": "q-ds-mcq-03",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What causes 'Data Skew' in distributed Spark operations and how can it be resolved?",
+      "options": [
+        "An uneven distribution of partition keys causing a single worker task to process vastly more data than others; resolved by salting the keys",
+        "Hardware clock drift across worker nodes; resolved by NTP sync",
+        "Writing to CSV instead of Parquet format; resolved by gzip",
+        "Running Spark on Windows instead of Linux"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Data skew bottlenecks the slowest task on heavily repeated join/group keys; appending random salt numbers distributes records uniformly across partitions."
+    },
+    {
+      "id": "q-ds-mcq-04",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In SQL analytics, what is the difference between `RANK()` and `DENSE_RANK()` window functions?",
+      "options": [
+        "RANK() skips rank numbers after ties (e.g. 1, 2, 2, 4); DENSE_RANK() does not skip numbers (e.g. 1, 2, 2, 3)",
+        "DENSE_RANK() sorts in descending order only",
+        "RANK() can only be used with integer columns",
+        "DENSE_RANK() cannot use PARTITION BY"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "RANK leaves gaps corresponding to the number of tied rows; DENSE_RANK increments consecutive integers without gaps."
+    },
+    {
+      "id": "q-ds-mcq-05",
+      "skillId": "sk-kafka",
+      "skillName": "Apache Kafka",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How does Kafka maintain message ordering within a topic?",
+      "options": [
+        "Messages are strictly ordered per partition, not across the entire topic",
+        "Messages are ordered alphabetically by payload content",
+        "Kafka guarantees strict global ordering across all partitions automatically",
+        "Kafka does not preserve order"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Kafka preserves total ordering strictly within an individual partition using sequential log offsets."
+    },
+    {
+      "id": "q-ds-mcq-06",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does a high VIF (Variance Inflation Factor > 5 or 10) signify in linear regression?",
+      "options": [
+        "High multicollinearity: independent features are highly correlated with each other, destabilizing coefficient estimates",
+        "Heteroscedasticity of residuals",
+        "The model is underfitting the training data",
+        "The target variable is normally distributed"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "VIF quantifies the degree to which inflation in variance of an estimated regression coefficient is caused by collinearity among predictors."
+    },
+    {
+      "id": "q-ds-mcq-07",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What metric evaluates the quality of clusters in unsupervised K-Means when ground truth labels are absent?",
+      "options": ["Silhouette Coefficient / Davies-Bouldin Index", "F1 Score", "Categorical Cross-Entropy", "R-squared"],
+      "correct": { "index": 0 },
+      "explanation": "The Silhouette score measures how similar an object is to its own cluster compared to neighboring clusters (-1 to +1)."
+    },
+    {
+      "id": "q-ds-mcq-08",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why is Apache Parquet preferred over CSV for analytical data storage?",
+      "options": [
+        "Parquet is columnar with dictionary encoding, snappy compression, and statistics metadata for efficient column pruning and predicate pushdown",
+        "Parquet can be opened directly in Microsoft Notepad without tools",
+        "CSV files are limited to 1,000 rows in Spark",
+        "Parquet removes all null values automatically"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Columnar storage allows queries to read only the required columns and skip row groups based on min/max statistics."
+    },
+    {
+      "id": "q-ds-mcq-09",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does a Common Table Expression (CTE) defined with `WITH RECURSIVE` allow you to do?",
+      "options": [
+        "Query hierarchical or graph-structured data such as org charts or dependency trees",
+        "Recursively delete all tables in a schema",
+        "Execute JavaScript inside PostgreSQL",
+        "Enforce database password rotation"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "WITH RECURSIVE computes transitive closures over recursive relation trees until an empty set is produced."
+    },
+    {
+      "id": "q-ds-mcq-10",
+      "skillId": "sk-kafka",
+      "skillName": "Apache Kafka",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What delivery semantic guarantees that a consumer processes each message exactly one time without duplicates or message loss?",
+      "options": [
+        "Exactly-Once Semantics (EOS) using transactional producers and consumer read_committed",
+        "At-Least-Once delivery",
+        "At-Most-Once delivery",
+        "Best-Effort UDP streaming"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "EOS in Kafka utilizes idempotent producers, two-phase transaction coordinates, and read_committed isolation on consumers."
+    },
+    {
+      "id": "q-ds-mcq-11",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the difference between Mean and Median when analyzing skewed distribution metrics like household income?",
+      "options": [
+        "The Median is robust to extreme outliers; the Mean is pulled towards extreme values in the tail",
+        "The Mean is always larger than the Median",
+        "The Median can only be computed on categorical variables",
+        "There is no difference in asymmetric distributions"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Median represents the 50th percentile and is resistant to extreme values that distort the arithmetic mean."
+    },
+    {
+      "id": "q-ds-mcq-12",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In Apache Spark, what is a Broadcast Join (Map-Side Join)?",
+      "options": [
+        "Broadcasting a small lookup table to all executor nodes to avoid an expensive shuffle of the large dataset across the network",
+        "Sending live video streams across worker sockets",
+        "Merging tables using Wi-Fi broadcast protocols",
+        "Duplicating all partitions across every core"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Broadcast hash join sends the small table to every executor, allowing partitions of the large table to join locally without a network shuffle."
+    },
+    {
+      "id": "q-ds-mcq-13",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does ROC-AUC score measure in classification models?",
+      "options": [
+        "The model's ability to discriminate between positive and negative classes across all classification probability thresholds",
+        "The mean absolute percentage error on continuous features",
+        "The percentage of memory utilized during training",
+        "The speed of convergence of gradient descent"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "ROC-AUC plots True Positive Rate vs False Positive Rate across varying decision thresholds, measuring discriminative power."
+    },
+    {
+      "id": "q-ds-mcq-14",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the purpose of the `COALESCE(val1, val2, ...)` function?",
+      "options": [
+        "Returns the first non-null expression in its argument list",
+        "Concatenates strings with a delimiter",
+        "Rounds decimal numbers to the nearest integer",
+        "Computes the exponential of a number"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "COALESCE evaluates arguments in sequence and returns the first non-NULL value found."
+    },
+    {
+      "id": "q-ds-mcq-15",
+      "skillId": "sk-kafka",
+      "skillName": "Apache Kafka",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What happens if a Kafka consumer group has 5 consumers assigned to a topic with only 3 partitions?",
+      "options": [
+        "3 consumers will each be assigned 1 partition; 2 consumers will remain idle as standby backups",
+        "Kafka will duplicate messages to all 5 consumers",
+        "The broker will crash with a partition exception",
+        "The topic automatically expands to 5 partitions"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Within a consumer group, each partition can only be read by one consumer at a time, leaving surplus consumers idle."
+    },
+    {
+      "id": "q-ds-mcq-16",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which scaling method rescales feature data to a range between 0 and 1?",
+      "options": ["MinMaxScaler", "StandardScaler (Z-score)", "RobustScaler", "MaxAbsScaler"],
+      "correct": { "index": 0 },
+      "explanation": "MinMaxScaler transforms features using (x - min) / (max - min) to constrain values strictly to [0, 1]."
+    },
+    {
+      "id": "q-ds-mcq-17",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What Spark Catalyst Optimizer feature eliminates reading unneeded partitions based on query WHERE filters?",
+      "options": ["Partition Pruning", "Garbage Collection", "Dynamic Allocation", "Checkpointing"],
+      "correct": { "index": 0 },
+      "explanation": "Partition pruning evaluates filter expressions at compile time to skip entire directory partitions from disk I/O."
+    },
+    {
+      "id": "q-ds-mcq-18",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does `EXPLAIN ANALYZE` do in PostgreSQL?",
+      "options": [
+        "Executes the query and displays the actual execution plan, node timings, and row counts alongside optimizer estimates",
+        "Only checks syntax without executing the query",
+        "Defragments table disk pages",
+        "Rewrites queries using AI"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "EXPLAIN ANALYZE runs the statement in a transaction, measuring true cost, actual time in ms, loops, and row counts per plan node."
+    },
+    {
+      "id": "q-ds-mcq-19",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the consequence of violating the homoscedasticity assumption in Ordinary Least Squares (OLS) regression?",
+      "options": [
+        "Standard error estimates are biased, invalidating p-values and confidence intervals, though coefficients remain unbiased",
+        "The model cannot make predictions",
+        "Residuals become completely zero",
+        "The R-squared becomes negative"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Heteroscedasticity renders standard OLS variance formulas invalid, requiring heteroscedasticity-robust standard errors (e.g. White standard errors)."
+    },
+    {
+      "id": "q-ds-mcq-20",
+      "skillId": "sk-kafka",
+      "skillName": "Apache Kafka",
+      "category": "Data Science & Analytics",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is log compaction in Apache Kafka?",
+      "options": [
+        "A retention policy where Kafka retains the most recent message for each key within a partition, discarding older updates with the same key",
+        "Compressing log files with tar.gz on disk",
+        "Deleting all logs older than 7 days",
+        "Merging multiple topics into one"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Log compaction ensures that the topic retains the latest state for every key, ideal for changelog streams and state stores."
+    }
+  ],
+  "codingTasks": [
+    {
+      "id": "q-ds-code-01",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "code",
+      "difficulty": 1,
+      "language": "python",
+      "prompt": "Write a Python function `moving_average(values, window_size)` that calculates the simple moving average over a list of numbers using a sliding window of size `k`. Return a list of averages rounded to 2 decimal places.",
+      "starterCode": "def moving_average(values, window_size):\n    # Your code here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-ds-c01-v1", "kind": "visible", "input": "from solution import moving_average\nprint(moving_average([1, 2, 3, 4, 5], 3))\n", "expectedOutput": "[2.0, 3.0, 4.0]" },
+        { "id": "t-ds-c01-v2", "kind": "visible", "input": "from solution import moving_average\nprint(moving_average([10, 20], 1))\n", "expectedOutput": "[10.0, 20.0]" },
+        { "id": "t-ds-c01-v3", "kind": "visible", "input": "from solution import moving_average\nprint(moving_average([1, 2], 5))\n", "expectedOutput": "[]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-c01-h1", "kind": "hidden", "input": "from solution import moving_average\nprint(moving_average([10, 20, 30, 40], 2))\n", "expectedOutput": "[15.0, 25.0, 35.0]", "weight": 1.0 },
+        { "id": "t-ds-c01-h2", "kind": "hidden", "input": "from solution import moving_average\nprint(moving_average([5, 5, 5, 5], 3))\n", "expectedOutput": "[5.0, 5.0]", "weight": 1.0 },
+        { "id": "t-ds-c01-h3", "kind": "hidden", "input": "from solution import moving_average\nprint(moving_average([], 2))\n", "expectedOutput": "[]", "weight": 1.0 },
+        { "id": "t-ds-c01-h4", "kind": "hidden", "input": "from solution import moving_average\nprint(moving_average([1, 3, 5, 7, 9], 4))\n", "expectedOutput": "[4.0, 6.0]", "weight": 1.0 },
+        { "id": "t-ds-c01-h5", "kind": "hidden", "input": "from solution import moving_average\nprint(moving_average([2.5, 3.5, 4.5], 2))\n", "expectedOutput": "[3.0, 4.0]", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-ds-code-02",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "Data Science & Analytics",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `detect_outliers_iqr(data)` that returns all values that fall outside 1.5 times the Interquartile Range (IQR = Q3 - Q1). The returned list should preserve the original order.",
+      "starterCode": "def detect_outliers_iqr(data):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-ds-c02-v1", "kind": "visible", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([10, 12, 12, 13, 12, 11, 100]))\n", "expectedOutput": "[100]" },
+        { "id": "t-ds-c02-v2", "kind": "visible", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([1, 2, 3, 4, 5]))\n", "expectedOutput": "[]" },
+        { "id": "t-ds-c02-v3", "kind": "visible", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([]))\n", "expectedOutput": "[]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-c02-h1", "kind": "hidden", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([-50, 10, 11, 12, 13, 14, 50]))\n", "expectedOutput": "[-50, 50]", "weight": 1.0 },
+        { "id": "t-ds-c02-h2", "kind": "hidden", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([5, 5, 5, 5]))\n", "expectedOutput": "[]", "weight": 1.0 },
+        { "id": "t-ds-c02-h3", "kind": "hidden", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([10, 20, 22, 23, 24, 25, 26, 27, 28, 90]))\n", "expectedOutput": "[90]", "weight": 1.0 },
+        { "id": "t-ds-c02-h4", "kind": "hidden", "input": "from solution import detect_outliers_iqr\nprint(detect_outliers_iqr([1, 100, 102, 105, 103, 104, 200]))\n", "expectedOutput": "[1, 200]", "weight": 1.0 },
+        { "id": "t-ds-c02-h5", "kind": "hidden", "input": "from solution import detect_outliers_iqr\nprint(isinstance(detect_outliers_iqr([1, 2, 3]), list))\n", "expectedOutput": "True", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-ds-code-03",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `aggregate_sales(records)` where records is a list of dicts `[{ 'category': str, 'amount': float }]`. Return a dict mapping each category to its total sales rounded to 2 decimal places.",
+      "starterCode": "def aggregate_sales(records):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-ds-c03-v1", "kind": "visible", "input": "from solution import aggregate_sales\nprint(aggregate_sales([{'category': 'tech', 'amount': 100.5}, {'category': 'tech', 'amount': 50.25}]))\n", "expectedOutput": "{'tech': 150.75}" },
+        { "id": "t-ds-c03-v2", "kind": "visible", "input": "from solution import aggregate_sales\nprint(aggregate_sales([]))\n", "expectedOutput": "{}" },
+        { "id": "t-ds-c03-v3", "kind": "visible", "input": "from solution import aggregate_sales\nprint(aggregate_sales([{'category': 'books', 'amount': 10.0}, {'category': 'food', 'amount': 20.0}]))\n", "expectedOutput": "{'books': 10.0, 'food': 20.0}" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-c03-h1", "kind": "hidden", "input": "from solution import aggregate_sales\nres = aggregate_sales([{'category': 'c1', 'amount': 1.111}, {'category': 'c1', 'amount': 2.222}])\nprint(res['c1'])\n", "expectedOutput": "3.33", "weight": 1.0 },
+        { "id": "t-ds-c03-h2", "kind": "hidden", "input": "from solution import aggregate_sales\nprint(len(aggregate_sales([{'category': f'cat_{i}', 'amount': 10} for i in range(10)])))\n", "expectedOutput": "10", "weight": 1.0 },
+        { "id": "t-ds-c03-h3", "kind": "hidden", "input": "from solution import aggregate_sales\nprint(aggregate_sales([{'category': 'zero', 'amount': 0.0}]))\n", "expectedOutput": "{'zero': 0.0}", "weight": 1.0 },
+        { "id": "t-ds-c03-h4", "kind": "hidden", "input": "from solution import aggregate_sales\nres = aggregate_sales([{'category': 'x', 'amount': -10}, {'category': 'x', 'amount': 15}])\nprint(res['x'])\n", "expectedOutput": "5.0", "weight": 1.0 },
+        { "id": "t-ds-c03-h5", "kind": "hidden", "input": "from solution import aggregate_sales\nprint(isinstance(aggregate_sales([]), dict))\n", "expectedOutput": "True", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-ds-code-04",
+      "skillId": "sk-kafka",
+      "skillName": "Apache Kafka",
+      "category": "Data Science & Analytics",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `hash_partition(key, num_partitions)` that implements consistent partition selection for a string key using `abs(hash(key)) % num_partitions`.",
+      "starterCode": "def hash_partition(key, num_partitions):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-ds-c04-v1", "kind": "visible", "input": "from solution import hash_partition\np = hash_partition('user_123', 4)\nprint(0 <= p < 4)\n", "expectedOutput": "True" },
+        { "id": "t-ds-c04-v2", "kind": "visible", "input": "from solution import hash_partition\nprint(hash_partition('same_key', 8) == hash_partition('same_key', 8))\n", "expectedOutput": "True" },
+        { "id": "t-ds-c04-v3", "kind": "visible", "input": "from solution import hash_partition\nprint(hash_partition('k', 1))\n", "expectedOutput": "0" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-c04-h1", "kind": "hidden", "input": "from solution import hash_partition\nprint(all(0 <= hash_partition(f'key_{i}', 5) < 5 for i in range(50)))\n", "expectedOutput": "True", "weight": 1.0 },
+        { "id": "t-ds-c04-h2", "kind": "hidden", "input": "from solution import hash_partition\nprint(isinstance(hash_partition('abc', 10), int))\n", "expectedOutput": "True", "weight": 1.0 },
+        { "id": "t-ds-c04-h3", "kind": "hidden", "input": "from solution import hash_partition\nprint(hash_partition('', 3) in [0, 1, 2])\n", "expectedOutput": "True", "weight": 1.0 },
+        { "id": "t-ds-c04-h4", "kind": "hidden", "input": "from solution import hash_partition\nprint(hash_partition('order_999', 16) < 16)\n", "expectedOutput": "True", "weight": 1.0 },
+        { "id": "t-ds-c04-h5", "kind": "hidden", "input": "from solution import hash_partition\np1 = hash_partition('a', 10); p2 = hash_partition('a', 10); print(p1 == p2)\n", "expectedOutput": "True", "weight": 1.0 }
+      ]
+    }
+  ],
+  "sqlTasks": [
+    {
+      "id": "q-ds-sql-01",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given `transactions(id, user_id, amount, created_at)`, use a window function to calculate the running total (`running_total`) of amount for each user, ordered by `created_at` ASC.",
+      "starterCode": "-- Write SQL query here\nSELECT user_id, created_at, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY created_at) AS running_total\nFROM transactions\n...",
+      "visibleTests": [
+        { "id": "t-ds-s01-v1", "kind": "visible", "input": "SELECT count(*) FROM transactions;", "expectedOutput": "5" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-s01-h1", "kind": "hidden", "input": "SELECT round(max(running_total), 2) FROM (SELECT SUM(amount) OVER (PARTITION BY user_id ORDER BY created_at) as running_total FROM transactions WHERE user_id=1);", "expectedOutput": "450", "weight": 1.0 },
+        { "id": "t-ds-s01-h2", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT DISTINCT user_id FROM transactions);", "expectedOutput": "2", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-ds-sql-02",
+      "skillId": "sk-postgres",
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "type": "sql",
+      "difficulty": 3,
+      "language": "sql",
+      "prompt": "Given table `monthly_metrics(month_id, revenue)`, write a query that calculates month-over-month revenue growth percentage: `((revenue - prev_revenue) / prev_revenue) * 100` using `LAG()`.",
+      "starterCode": "-- Write SQL query here\nSELECT month_id, revenue,\n       round(((revenue - LAG(revenue) OVER (ORDER BY month_id)) / LAG(revenue) OVER (ORDER BY month_id)) * 100, 2) AS mom_growth\nFROM monthly_metrics\n...",
+      "visibleTests": [
+        { "id": "t-ds-s02-v1", "kind": "visible", "input": "SELECT count(*) FROM monthly_metrics;", "expectedOutput": "4" }
+      ],
+      "hiddenTests": [
+        { "id": "t-ds-s02-h1", "kind": "hidden", "input": "SELECT round(mom_growth, 0) FROM (SELECT ((revenue - LAG(revenue) OVER (ORDER BY month_id)) / LAG(revenue) OVER (ORDER BY month_id)) * 100 as mom_growth FROM monthly_metrics WHERE month_id=2);", "expectedOutput": "20", "weight": 1.0 }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "q-ds-proj-01",
+      "skillId": "sk-spark",
+      "skillName": "Apache Spark",
+      "category": "Data Science & Analytics",
+      "type": "project",
+      "difficulty": 3,
+      "prompt": "Mini-Project: Automated End-to-End ETL and Analytics Pipeline.\nDesign an automated pipeline that:\n1. Ingests raw JSON transactional records from source files.\n2. Performs data deduplication, schema validation, and missing-value imputation.\n3. Enriches records with reference metadata.\n4. Computes daily aggregates (active users, total revenue, churn indicators).\n5. Writes final partitioned Parquet outputs.",
+      "rubric": [
+        { "key": "functionality", "label": "Pipeline Ingestion & Transformation", "weight": 35, "description": "Successfully ingests JSON, applies clean transformations, and generates correct aggregated outputs." },
+        { "key": "correctness", "label": "Data Quality & Edge Cases", "weight": 25, "description": "Handles nulls, duplicate transactions, and schema drift robustly without data corruption." },
+        { "key": "quality", "label": "Performance & Partition Strategy", "weight": 20, "description": "Designs optimal partition keys (e.g. date) avoiding small file problem and shuffle skew." },
+        { "key": "problem_solving", "label": "Idempotency & Fault Tolerance", "weight": 20, "description": "Supports safe re-runs without duplicate side effects or orphaned files." }
+      ]
+    }
+  ]
+}

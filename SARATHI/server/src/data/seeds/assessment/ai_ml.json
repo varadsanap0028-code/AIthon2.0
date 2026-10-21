@@ -1,0 +1,484 @@
+{
+  "domainId": "ai-ml",
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-aiml-mcq-01",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which technique prevents data leakage when scaling features during cross-validation?",
+      "options": [
+        "Fitting the scaler inside each cross-validation fold using a Pipeline",
+        "Scaling the entire dataset before splitting into train and test sets",
+        "Normalizing test labels along with features",
+        "Removing all outliers prior to splitting"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Fitting scalers only on training folds within a Pipeline ensures test fold statistics do not leak into model training."
+    },
+    {
+      "id": "q-aiml-mcq-02",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What metric is most appropriate for evaluating a binary classification model on a heavily imbalanced dataset (e.g. 99% negative, 1% positive)?",
+      "options": ["PR-AUC / Precision-Recall F1-score", "Standard Accuracy", "Mean Squared Error", "Explained Variance"],
+      "correct": { "index": 0 },
+      "explanation": "On imbalanced datasets, a trivial model predicting the majority class achieves 99% accuracy; Precision, Recall, and PR-AUC properly reflect positive class detection."
+    },
+    {
+      "id": "q-aiml-mcq-03",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the primary difference between L1 (Lasso) and L2 (Ridge) regularization?",
+      "options": [
+        "L1 adds the absolute sum of weights and can drive coefficients exactly to zero for feature selection; L2 adds the squared sum and shrinks weights smoothly",
+        "L1 shrinks weights towards infinity while L2 shrinks them to zero",
+        "L2 can only be applied to decision tree algorithms",
+        "L1 and L2 are identical in effect"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "L1 penalty induces sparsity by forcing non-informative feature weights to zero, acting as automatic feature selection."
+    },
+    {
+      "id": "q-aiml-mcq-04",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Why must you call `optimizer.zero_grad()` before `loss.backward()` in a typical PyTorch training loop?",
+      "options": [
+        "PyTorch accumulates gradients on every backward pass by default instead of overwriting them",
+        "It resets model weights to random initialization",
+        "It frees GPU memory by deleting the computational graph",
+        "It normalizes the learning rate automatically"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "PyTorch accumulates gradients across iterations unless explicitly cleared with zero_grad()."
+    },
+    {
+      "id": "q-aiml-mcq-05",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the role of `model.eval()` and `torch.no_grad()` during model inference?",
+      "options": [
+        "model.eval() configures layers like Dropout and BatchNorm for evaluation; torch.no_grad() disables gradient tracking to save compute and memory",
+        "Both functions convert floating point tensors to integers",
+        "They compile PyTorch code into C++ binaries",
+        "They upload the model weights to Hugging Face Hub"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "model.eval() toggles inference behavior on layers (e.g. disables dropout, uses running batch statistics), while torch.no_grad() stops autograd history tracking."
+    },
+    {
+      "id": "q-aiml-mcq-06",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How does the Vanishing Gradient problem manifest in deep neural networks, and which mechanism mitigates it in ResNet architectures?",
+      "options": [
+        "Gradients become exponentially small as they backpropagate through deep layers; residual skip connections allow gradients to flow directly without attenuation",
+        "Weights grow to infinity; softmax layers divide by the learning rate",
+        "The model predicts the same value for every input; resolved by adding more fully-connected layers",
+        "The GPU runs out of memory; resolved by increasing batch size"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Skip connections (f(x) + x) provide a direct gradient pathway during backpropagation, bypassing multiplicative weight decay."
+    },
+    {
+      "id": "q-aiml-mcq-07",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the primary role of a vector embedding in a Retrieval-Augmented Generation (RAG) pipeline?",
+      "options": [
+        "To represent semantic meaning as dense floating-point coordinates for similarity retrieval",
+        "To encrypt sensitive documents in the database",
+        "To compress text files for faster network transmission",
+        "To parse JSON schemas into SQL tables"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Vector embeddings project textual content into semantic vector spaces where cosine distance measures thematic similarity."
+    },
+    {
+      "id": "q-aiml-mcq-08",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why is document chunking with overlap critical when preparing context for vector search?",
+      "options": [
+        "It preserves context across sentence boundaries and prevents information loss at chunk edges",
+        "It reduces the total number of vectors in the database",
+        "It converts text into relational tables",
+        "It removes all punctuation automatically"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Chunk overlap ensures concepts or phrases straddling chunk limits are captured in full context by the embedding model."
+    },
+    {
+      "id": "q-aiml-mcq-09",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How does Hybrid Search improve retrieval accuracy compared to pure dense vector search in RAG?",
+      "options": [
+        "It combines dense vector semantic search with sparse keyword search (e.g. BM25) using reciprocal rank fusion (RRF) to capture both semantic meaning and exact keywords",
+        "It searches both MySQL and MongoDB simultaneously",
+        "It generates images and audio alongside text",
+        "It replaces language models with deterministic if-else rules"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Dense embeddings excel at conceptual meaning but often miss specific identifiers, part numbers, or rare terms that BM25 handles cleanly."
+    },
+    {
+      "id": "q-aiml-mcq-10",
+      "skillId": "sk-llm-fine",
+      "skillName": "LLM Fine-Tuning & Prompting",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is 'Few-Shot Prompting'?",
+      "options": [
+        "Providing the LLM with a small set of demonstration input-output examples directly in the context window before asking for the target completion",
+        "Training a model from scratch with only 5 epochs",
+        "Executing model inference only during off-peak hours",
+        "Restricting prompt length to under 10 tokens"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Few-shot prompting conditions the model on exemplary pairs within the prompt context without modifying underlying weights."
+    },
+    {
+      "id": "q-aiml-mcq-11",
+      "skillId": "sk-llm-fine",
+      "skillName": "LLM Fine-Tuning & Prompting",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does Low-Rank Adaptation (LoRA) do during parameter-efficient fine-tuning (PEFT)?",
+      "options": [
+        "Freezes the pre-trained model weights and injects trainable rank-decomposition matrices into Transformer attention layers, drastically reducing trainable parameters",
+        "Quantizes the model to 1-bit weights",
+        "Deletes 50% of the attention heads randomly",
+        "Converts language models into convolutional neural networks"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "LoRA freezes the base weights W0 and decomposes weight updates into product matrices B × A where rank r << d, lowering memory and VRAM requirements."
+    },
+    {
+      "id": "q-aiml-mcq-12",
+      "skillId": "sk-llm-fine",
+      "skillName": "LLM Fine-Tuning & Prompting",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is catastrophic forgetting in the context of fine-tuning foundational models, and how can it be mitigated?",
+      "options": [
+        "The model loses its generalized knowledge and reasoning when trained intensely on a narrow task; mitigated by mixing in general alignment data or using parameter-efficient tuning like LoRA",
+        "The GPU cache memory overflows during training; mitigated by rebooting",
+        "The token dictionary deletes special characters; mitigated by UTF-8 encoding",
+        "The model hallucinates citation URLs; mitigated by temperature = 0"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Catastrophic forgetting occurs when full weight adjustments overwrite pre-existing representations; LoRA and replay buffers preserve original model capacity."
+    },
+    {
+      "id": "q-aiml-mcq-13",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In Random Forest classifiers, what does 'Bagging' (Bootstrap Aggregation) accomplish?",
+      "options": [
+        "Trains each tree on a random sample with replacement and subsets of features, reducing overall model variance without increasing bias",
+        "Aggregates predictions by computing the geometric mean of training errors",
+        "Prunes decision trees to a maximum depth of 2",
+        "Forces all decision trees to share identical split thresholds"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Bootstrapping creates diverse, decorrelated trees whose averaged predictions yield lower variance than individual deep trees."
+    },
+    {
+      "id": "q-aiml-mcq-14",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How does Gradient Boosting (e.g. XGBoost, LightGBM) differ fundamentally from Random Forest?",
+      "options": [
+        "Gradient Boosting builds trees sequentially to predict the pseudo-residuals of preceding trees, whereas Random Forest trains independent trees in parallel",
+        "Gradient Boosting only works with text data",
+        "Random Forest minimizes gradient loss via backpropagation",
+        "Gradient Boosting cannot handle non-linear decision boundaries"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Boosting is an additive, sequential ensemble that optimizes a differentiable loss function by fitting each new learner to the negative gradient of the loss."
+    },
+    {
+      "id": "q-aiml-mcq-15",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the function of the Softmax activation layer in multi-class classification neural networks?",
+      "options": [
+        "Transforms unnormalized logits into a valid probability distribution that sums to 1.0",
+        "Clamps negative values to zero like ReLU",
+        "Computes the Euclidean distance between feature vectors",
+        "Extracts spatial features from image tensors"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Softmax exponentiates logits and divides each by the sum of exponentials, yielding normalized probabilities."
+    },
+    {
+      "id": "q-aiml-mcq-16",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does the PyTorch `DataLoader` abstraction provide during training?",
+      "options": [
+        "Automated batching, shuffling, multi-process data loading, and pin_memory support for GPU transfers",
+        "Direct SQL querying of remote databases",
+        "Automatic code translation to ONNX",
+        "Automatic hyperparameter optimization via genetic algorithms"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "DataLoader wraps a Dataset to provide mini-batch streaming, worker process parallelism, and optional memory pinning."
+    },
+    {
+      "id": "q-aiml-mcq-17",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What index algorithm is commonly used in vector databases for fast approximate nearest neighbor (ANN) search on millions of high-dimensional vectors?",
+      "options": ["HNSW (Hierarchical Navigable Small World)", "B-Tree index", "Inverted bitmap index", "Hash table"],
+      "correct": { "index": 0 },
+      "explanation": "HNSW builds multi-layer proximity graphs offering logarithmic search scaling for high-dimensional cosine and Euclidean distance queries."
+    },
+    {
+      "id": "q-aiml-mcq-18",
+      "skillId": "sk-llm-fine",
+      "skillName": "LLM Fine-Tuning & Prompting",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the function of 'Temperature' in LLM text generation sampling?",
+      "options": [
+        "Controls the flatness of the softmax probability distribution: lower values produce more deterministic, conservative output; higher values increase diversity",
+        "Controls the clock speed and thermal throttling of the GPU",
+        "Measures the confidence score of the input tokenizer",
+        "Sets the maximum execution time of the inference request"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Dividing logits by temperature before softmax sharpens the distribution (low temp) or flattens it (high temp)."
+    },
+    {
+      "id": "q-aiml-mcq-19",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the purpose of Principal Component Analysis (PCA)?",
+      "options": [
+        "Dimensionality reduction by finding orthogonal axes that maximize data variance",
+        "Clustering data points into k distinct spherical clusters",
+        "Supervised regression for predicting continuous target values",
+        "Generating synthetic tabular data using GANs"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "PCA projects data onto principal eigenvectors of the covariance matrix, capturing the greatest variance in descending orthogonal directions."
+    },
+    {
+      "id": "q-aiml-mcq-20",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In Transformer self-attention, why is the dot product of Query and Key scaled by `1 / sqrt(d_k)`?",
+      "options": [
+        "To prevent large dot product magnitudes in high dimensions from pushing the softmax function into regions with extremely tiny gradients",
+        "To normalize vector magnitude to unit length",
+        "To convert floating point precision to integer values",
+        "To ensure attention weights sum to zero"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "As d_k grows, dot products grow large in variance, pushing softmax into saturation where gradients vanish; 1/sqrt(d_k) stabilizes variance to 1."
+    }
+  ],
+  "codingTasks": [
+    {
+      "id": "q-aiml-code-01",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "code",
+      "difficulty": 1,
+      "language": "python",
+      "prompt": "Write a Python function `euclidean_distance(p1, p2)` that computes the Euclidean distance between two n-dimensional points represented as lists of numbers.",
+      "starterCode": "def euclidean_distance(p1, p2):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-aiml-c01-v1", "kind": "visible", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([0, 0], [3, 4]), 2))\n", "expectedOutput": "5.0" },
+        { "id": "t-aiml-c01-v2", "kind": "visible", "input": "from solution import euclidean_distance\nprint(euclidean_distance([1, 2, 3], [1, 2, 3]))\n", "expectedOutput": "0.0" },
+        { "id": "t-aiml-c01-v3", "kind": "visible", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([1, 1], [4, 5]), 2))\n", "expectedOutput": "5.0" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-c01-h1", "kind": "hidden", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([-1, -1], [2, 3]), 2))\n", "expectedOutput": "5.0", "weight": 1.0 },
+        { "id": "t-aiml-c01-h2", "kind": "hidden", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([0, 0, 0, 0], [1, 1, 1, 1]), 2))\n", "expectedOutput": "2.0", "weight": 1.0 },
+        { "id": "t-aiml-c01-h3", "kind": "hidden", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([10], [25]), 2))\n", "expectedOutput": "15.0", "weight": 1.0 },
+        { "id": "t-aiml-c01-h4", "kind": "hidden", "input": "from solution import euclidean_distance\nprint(round(euclidean_distance([2.5, 3.5], [0.5, 1.5]), 2))\n", "expectedOutput": "2.83", "weight": 1.0 },
+        { "id": "t-aiml-c01-h5", "kind": "hidden", "input": "from solution import euclidean_distance\nprint(isinstance(euclidean_distance([1], [2]), (int, float)))\n", "expectedOutput": "True", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-aiml-code-02",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `cosine_similarity(vec_a, vec_b)` that returns the cosine similarity between two non-zero 1D vectors, rounded to 4 decimal places.",
+      "starterCode": "def cosine_similarity(vec_a, vec_b):\n    # Your code here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-aiml-c02-v1", "kind": "visible", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, 0], [1, 0]))\n", "expectedOutput": "1.0" },
+        { "id": "t-aiml-c02-v2", "kind": "visible", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, 0], [0, 1]))\n", "expectedOutput": "0.0" },
+        { "id": "t-aiml-c02-v3", "kind": "visible", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, 1], [-1, -1]))\n", "expectedOutput": "-1.0" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-c02-h1", "kind": "hidden", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, 2, 3], [4, 5, 6]))\n", "expectedOutput": "0.9746", "weight": 1.0 },
+        { "id": "t-aiml-c02-h2", "kind": "hidden", "input": "from solution import cosine_similarity\nprint(cosine_similarity([3, 4], [6, 8]))\n", "expectedOutput": "1.0", "weight": 1.0 },
+        { "id": "t-aiml-c02-h3", "kind": "hidden", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, 2], [2, 1]))\n", "expectedOutput": "0.8", "weight": 1.0 },
+        { "id": "t-aiml-c02-h4", "kind": "hidden", "input": "from solution import cosine_similarity\nprint(cosine_similarity([0, 5], [0, 10]))\n", "expectedOutput": "1.0", "weight": 1.0 },
+        { "id": "t-aiml-c02-h5", "kind": "hidden", "input": "from solution import cosine_similarity\nprint(cosine_similarity([1, -1], [1, 1]))\n", "expectedOutput": "0.0", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-aiml-code-03",
+      "skillId": "sk-pytorch",
+      "skillName": "PyTorch",
+      "category": "AI & Machine Learning",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `softmax(logits)` that takes a list of numerical logits and returns a list of probabilities summing to 1.0 (handle numerical stability by subtracting the max logit).",
+      "starterCode": "def softmax(logits):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-aiml-c03-v1", "kind": "visible", "input": "from solution import softmax\nres = softmax([1.0, 1.0, 1.0])\nprint([round(x, 4) for x in res])\n", "expectedOutput": "[0.3333, 0.3333, 0.3333]" },
+        { "id": "t-aiml-c03-v2", "kind": "visible", "input": "from solution import softmax\nres = softmax([0.0])\nprint(res)\n", "expectedOutput": "[1.0]" },
+        { "id": "t-aiml-c03-v3", "kind": "visible", "input": "from solution import softmax\nres = softmax([2.0, 1.0, 0.1])\nprint(round(sum(res), 5))\n", "expectedOutput": "1.0" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-c03-h1", "kind": "hidden", "input": "from solution import softmax\nres = softmax([1000, 1000, 1000])\nprint([round(x, 4) for x in res])\n", "expectedOutput": "[0.3333, 0.3333, 0.3333]", "weight": 1.0 },
+        { "id": "t-aiml-c03-h2", "kind": "hidden", "input": "from solution import softmax\nres = softmax([10, 0])\nprint(round(res[0], 4))\n", "expectedOutput": "1.0", "weight": 1.0 },
+        { "id": "t-aiml-c03-h3", "kind": "hidden", "input": "from solution import softmax\nres = softmax([-5, -5])\nprint([round(x, 2) for x in res])\n", "expectedOutput": "[0.5, 0.5]", "weight": 1.0 },
+        { "id": "t-aiml-c03-h4", "kind": "hidden", "input": "from solution import softmax\nres = softmax([1.0, 2.0])\nprint(round(res[1] / res[0], 4))\n", "expectedOutput": "2.7183", "weight": 1.0 },
+        { "id": "t-aiml-c03-h5", "kind": "hidden", "input": "from solution import softmax\nres = softmax([1, 2, 3, 4, 5])\nprint(round(sum(res), 5))\n", "expectedOutput": "1.0", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-aiml-code-04",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "code",
+      "difficulty": 2,
+      "language": "python",
+      "prompt": "Write a Python function `chunk_text(text, chunk_size, overlap)` that splits a string into chunks of `chunk_size` characters with `overlap` characters shared between consecutive chunks. Return a list of chunk strings.",
+      "starterCode": "def chunk_text(text, chunk_size, overlap):\n    # Your implementation here\n    pass\n",
+      "visibleTests": [
+        { "id": "t-aiml-c04-v1", "kind": "visible", "input": "from solution import chunk_text\nprint(chunk_text('abcdefghij', 4, 1))\n", "expectedOutput": "['abcd', 'defg', 'ghij']" },
+        { "id": "t-aiml-c04-v2", "kind": "visible", "input": "from solution import chunk_text\nprint(chunk_text('hello', 10, 2))\n", "expectedOutput": "['hello']" },
+        { "id": "t-aiml-c04-v3", "kind": "visible", "input": "from solution import chunk_text\nprint(chunk_text('', 5, 1))\n", "expectedOutput": "[]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-c04-h1", "kind": "hidden", "input": "from solution import chunk_text\nprint(chunk_text('12345678', 3, 0))\n", "expectedOutput": "['123', '456', '78']", "weight": 1.0 },
+        { "id": "t-aiml-c04-h2", "kind": "hidden", "input": "from solution import chunk_text\nprint(chunk_text('abcdef', 3, 1))\n", "expectedOutput": "['abc', 'cde', 'ef']", "weight": 1.0 },
+        { "id": "t-aiml-c04-h3", "kind": "hidden", "input": "from solution import chunk_text\nprint(len(chunk_text('a'*100, 20, 5)))\n", "expectedOutput": "7", "weight": 1.0 },
+        { "id": "t-aiml-c04-h4", "kind": "hidden", "input": "from solution import chunk_text\nprint(chunk_text('abc', 3, 2))\n", "expectedOutput": "['abc']", "weight": 1.0 },
+        { "id": "t-aiml-c04-h5", "kind": "hidden", "input": "from solution import chunk_text\nchunks = chunk_text('data science', 6, 2)\nprint(chunks[0])\n", "expectedOutput": "data s", "weight": 1.0 }
+      ]
+    }
+  ],
+  "sqlTasks": [
+    {
+      "id": "q-aiml-sql-01",
+      "skillId": "sk-scikit",
+      "skillName": "Scikit-Learn",
+      "category": "AI & Machine Learning",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given table `model_experiments(id, model_name, dataset, accuracy, f1_score, created_at)`, find the highest `f1_score` achieved for each `model_name` on dataset 'imdb_sentiment', ordered by highest f1_score DESC.",
+      "starterCode": "-- Write your SQL query here\nSELECT model_name, MAX(f1_score) as best_f1\nFROM model_experiments\n...",
+      "visibleTests": [
+        { "id": "t-aiml-s01-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM model_experiments WHERE dataset='imdb_sentiment';", "expectedOutput": "4" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-s01-h1", "kind": "hidden", "input": "SELECT model_name FROM model_experiments WHERE dataset='imdb_sentiment' GROUP BY model_name ORDER BY max(f1_score) DESC LIMIT 1;", "expectedOutput": "BERT-Base", "weight": 1.0 },
+        { "id": "t-aiml-s01-h2", "kind": "hidden", "input": "SELECT count(DISTINCT model_name) FROM model_experiments WHERE dataset='imdb_sentiment';", "expectedOutput": "2", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-aiml-sql-02",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given `vector_documents(id, collection_id, token_count, created_at)`, write a query that lists collections having total tokens greater than 50,000, along with their average token count per document.",
+      "starterCode": "-- Write SQL query here\nSELECT collection_id, SUM(token_count) AS total_tokens, AVG(token_count) AS avg_tokens\nFROM vector_documents\n...",
+      "visibleTests": [
+        { "id": "t-aiml-s02-v1", "kind": "visible", "input": "SELECT count(*) FROM vector_documents;", "expectedOutput": "6" }
+      ],
+      "hiddenTests": [
+        { "id": "t-aiml-s02-h1", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT collection_id FROM vector_documents GROUP BY collection_id HAVING SUM(token_count) > 50000);", "expectedOutput": "1", "weight": 1.0 }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "q-aiml-proj-01",
+      "skillId": "sk-rag",
+      "skillName": "RAG & Vector Search",
+      "category": "AI & Machine Learning",
+      "type": "project",
+      "difficulty": 3,
+      "prompt": "Mini-Project: Design and implement an End-to-End RAG Knowledge Assistant query pipeline.\nRequirements:\n1. Ingest text, split into overlapping chunks, and generate dense embeddings.\n2. Store embeddings with metadata in a vector store.\n3. Given a user query, perform top-k semantic search.\n4. Assemble an augmented prompt injecting the retrieved context.\n5. Implement a fallback when retrieved similarity is below threshold.",
+      "rubric": [
+        { "key": "functionality", "label": "Retrieval Pipeline & Context Assembly", "weight": 35, "description": "Proper chunking, similarity ranking, and clean context injection into prompt template." },
+        { "key": "correctness", "label": "Semantic Search Accuracy", "weight": 25, "description": "Cosine similarity or ANN distance calculation correctly ranks most relevant chunks." },
+        { "key": "quality", "label": "Thresholding & Groundedness", "weight": 20, "description": "Handles unanswerable queries gracefully with similarity threshold check to avoid hallucinations." },
+        { "key": "problem_solving", "label": "Modularity & Extensibility", "weight": 20, "description": "Clean separation of embedder, retriever, vector index, and synthesis layers." }
+      ]
+    }
+  ]
+}

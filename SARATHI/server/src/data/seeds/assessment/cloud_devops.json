@@ -1,0 +1,474 @@
+{
+  "domainId": "cloud-devops",
+  "version": 1,
+  "questions": [
+    {
+      "id": "q-cd-mcq-01",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the primary advantage of multi-stage Docker builds?",
+      "options": [
+        "Separating the build environment from the minimal runtime image, reducing attack surface and image size",
+        "Running multiple containers simultaneously on the same host port",
+        "Encrypting container network traffic automatically",
+        "Bypassing kernel isolation boundaries"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Multi-stage builds leave compiler tools and intermediate assets in temporary stages, producing a lean final production image."
+    },
+    {
+      "id": "q-cd-mcq-02",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the difference between `CMD` and `ENTRYPOINT` in a Dockerfile?",
+      "options": [
+        "ENTRYPOINT defines the default executable that cannot be overridden by arguments easily; CMD provides default arguments that can be overridden at runtime",
+        "CMD compiles code during docker build; ENTRYPOINT starts the daemon",
+        "ENTRYPOINT is only supported on Linux Alpine",
+        "There is no difference; they are interchangeable"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "ENTRYPOINT sets the binary to invoke, while CMD acts as default parameters that append to ENTRYPOINT unless overridden in `docker run`."
+    },
+    {
+      "id": "q-cd-mcq-03",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why should containers never run as `root` (UID 0) inside production deployments?",
+      "options": [
+        "In the event of a container breakout vulnerability, root in the container could yield root privileges on the host kernel",
+        "Non-root containers consume 50% less CPU",
+        "Docker daemon refuses to start root containers",
+        "Root users cannot bind to ports above 1024"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Namespaced UID 0 without user namespace remapping matches host UID 0, making container escapes catastrophic."
+    },
+    {
+      "id": "q-cd-mcq-04",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What Kubernetes resource ensures that a specified number of Pod replicas are running at all times?",
+      "options": ["ReplicaSet / Deployment", "ConfigMap", "Ingress", "PersistentVolume"],
+      "correct": { "index": 0 },
+      "explanation": "Deployments manage ReplicaSets which actively reconcile desired replica count against actual running Pods."
+    },
+    {
+      "id": "q-cd-mcq-05",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the key difference between a Kubernetes `livenessProbe` and a `readinessProbe`?",
+      "options": [
+        "Liveness probes restart failed containers; Readiness probes remove the Pod from Service endpoints so it stops receiving traffic until healthy",
+        "Readiness probes terminate the node; Liveness probes report metrics to Prometheus",
+        "Liveness probes only test disk storage",
+        "Both probes always restart the container"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Failing a liveness probe triggers container restart, whereas failing a readiness probe pauses ingress traffic without restarting."
+    },
+    {
+      "id": "q-cd-mcq-06",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is a PodDisruptionBudget (PDB) in Kubernetes?",
+      "options": [
+        "A policy that limits the number of concurrent voluntary evictions during voluntary disruptions (e.g. node upgrades)",
+        "A hard ceiling on monthly cloud compute cost",
+        "A quota on the total number of Pods in a namespace",
+        "A network filter blocking DDoS traffic"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "PDBs specify minimum available replicas during voluntary node draining or cluster upgrades, preventing inadvertent downtime."
+    },
+    {
+      "id": "q-cd-mcq-07",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the primary function of the `terraform.tfstate` file?",
+      "options": [
+        "Maps declared configuration resources to real-world infrastructure objects and tracks metadata",
+        "Stores the SSH keys for server login",
+        "Contains the compiled C++ binaries for cloud providers",
+        "Acts as a live backup of the application database"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "The state file records resource IDs, attributes, and relationships so Terraform can determine drift and plan updates."
+    },
+    {
+      "id": "q-cd-mcq-08",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why should Terraform remote state be stored in Amazon S3 with DynamoDB state locking enabled?",
+      "options": [
+        "Prevents race conditions and state corruption when multiple engineers or CI pipelines run terraform apply concurrently",
+        "Encrypts source code with quantum cryptography",
+        "Enables automatic translation of HCL to Kubernetes YAML",
+        "Eliminates the need for AWS credentials"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "DynamoDB table provides distributed locking (state locking) while S3 stores encrypted versioned state objects."
+    },
+    {
+      "id": "q-cd-mcq-09",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the `lifecycle { prevent_destroy = true }` block do in Terraform?",
+      "options": [
+        "Causes Terraform to error with an alert if an execution plan would destroy the resource",
+        "Forces the resource to automatically recreate every 24 hours",
+        "Restricts read access to root administrators only",
+        "Disables Terraform state updates"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "prevent_destroy is a safeguard against accidental destruction of critical infrastructure such as production databases."
+    },
+    {
+      "id": "q-cd-mcq-10",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In an AWS Virtual Private Cloud (VPC), what distinguishes a Public Subnet from a Private Subnet?",
+      "options": [
+        "A public subnet has a route table pointing `0.0.0.0/0` directly to an Internet Gateway (IGW)",
+        "A public subnet does not support security groups",
+        "A private subnet cannot communicate with other subnets in the VPC",
+        "A private subnet is hosted in an on-premise datacenter"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Subnets with a default route to an Internet Gateway are public; private subnets route outbound traffic through a NAT Gateway."
+    },
+    {
+      "id": "q-cd-mcq-11",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the key difference between AWS Security Groups and Network Access Control Lists (NACLs)?",
+      "options": [
+        "Security Groups are stateful and operate at the ENI instance level; NACLs are stateless and operate at the subnet boundary",
+        "Security Groups are stateless; NACLs are stateful",
+        "NACLs only inspect IPv6 traffic",
+        "Security Groups cannot block inbound ports"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Security Groups automatically allow return traffic for established connections (stateful); NACLs require explicit inbound and outbound rule evaluation (stateless)."
+    },
+    {
+      "id": "q-cd-mcq-12",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When designing high availability on AWS across Availability Zones (AZs), what architectural principle applies to AWS Aurora database clusters?",
+      "options": [
+        "Aurora automatically replicates 6 copies of storage across 3 AZs and allows zero-downtime reader failover to an Aurora Replica",
+        "Aurora requires manual disk snapshot restoration across regions",
+        "Aurora only operates in a single AZ",
+        "Aurora requires Apache Kafka for multi-AZ writes"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Aurora decouples compute and storage, maintaining 6-way quorum storage across 3 AZs with automated sub-minute failover."
+    },
+    {
+      "id": "q-cd-mcq-13",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What Linux kernel features provide the foundation for container isolation in Docker?",
+      "options": [
+        "cgroups (resource allocation limits) and namespaces (process/network/mount isolation)",
+        "syslog and cron",
+        "iptables and ext4 exclusively",
+        "KVM hypervisors"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Namespaces isolate process views (PID, NET, MNT, IPC, UTS) while cgroups enforce CPU, memory, and I/O resource limits."
+    },
+    {
+      "id": "q-cd-mcq-14",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How does a Kubernetes `ConfigMap` differ from a `Secret`?",
+      "options": [
+        "ConfigMaps store non-confidential configuration; Secrets store sensitive data (base64 encoded by default and mountable as tmpfs volumes or encrypted at rest)",
+        "Secrets can only be accessed by cluster admins",
+        "ConfigMaps are deleted automatically every hour",
+        "Secrets can only hold TLS certificates"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Secrets handle sensitive credentials with options for encryption at rest (KMS) and tmpfs memory-only volume mounts."
+    },
+    {
+      "id": "q-cd-mcq-15",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What command shows proposed changes without modifying real cloud infrastructure?",
+      "options": ["terraform plan", "terraform apply --force", "terraform init", "terraform destroy"],
+      "correct": { "index": 0 },
+      "explanation": "terraform plan compares state against configuration and displays the execution plan without applying changes."
+    },
+    {
+      "id": "q-cd-mcq-16",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the AWS IAM Best Practice for EC2 applications needing access to an S3 bucket?",
+      "options": [
+        "Attach an IAM Role via an Instance Profile to the EC2 instance, avoiding hardcoded static access keys",
+        "Embed the root account AWS Access Key ID in the application source code",
+        "Make the S3 bucket fully public to the internet",
+        "Transmit AWS credentials in every HTTP GET request header"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "IAM Roles use the instance metadata service (IMDSv2) to issue temporary, automatically rotated security credentials."
+    },
+    {
+      "id": "q-cd-mcq-17",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does a Kubernetes NetworkPolicy do?",
+      "options": [
+        "Specifies packet filtering rules governing ingress and egress traffic between Pods and IP blocks",
+        "Configures DNS server records for external domains",
+        "Assigns public IP addresses to nodes",
+        "Limits the total bandwidth of the cluster"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "NetworkPolicies define ingress/egress firewall rules at the Pod label level using a supported CNI plugin (e.g. Calico, Cilium)."
+    },
+    {
+      "id": "q-cd-mcq-18",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What file instructs Docker to ignore files and directories from the build context sent to the daemon?",
+      "options": [".dockerignore", ".gitignore", "docker.config", "Dockerfile.ignore"],
+      "correct": { "index": 0 },
+      "explanation": ".dockerignore prevents local artifacts (e.g. node_modules, .git) from being copied into the build context, speeding up builds."
+    },
+    {
+      "id": "q-cd-mcq-19",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What AWS service provides managed, scalable DNS resolution with latency and health-check routing?",
+      "options": ["Amazon Route 53", "Amazon CloudFront", "AWS Direct Connect", "Amazon VPC"],
+      "correct": { "index": 0 },
+      "explanation": "Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service."
+    },
+    {
+      "id": "q-cd-mcq-20",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In Terraform, how do you handle sensitive outputs so they are masked in console output and logs?",
+      "options": [
+        "Set `sensitive = true` in the output declaration block",
+        "Encrypt the variable with GPG key in tfvars",
+        "Name the variable with prefix _secret",
+        "Delete the output block after apply"
+      ],
+      "correct": { "index": 0 },
+      "explanation": "Marking an output as sensitive = true suppresses its value from CLI output during plan and apply."
+    }
+  ],
+  "codingTasks": [
+    {
+      "id": "q-cd-code-01",
+      "skillId": "sk-docker",
+      "skillName": "Docker",
+      "category": "Cloud & Infrastructure",
+      "type": "code",
+      "difficulty": 1,
+      "language": "javascript",
+      "prompt": "Write a JavaScript function `parseDockerfile(content)` that extracts all base images specified in `FROM` directives and returns an array of image strings.",
+      "starterCode": "function parseDockerfile(content) {\n  // Your implementation here\n}\n\nmodule.exports = { parseDockerfile };",
+      "visibleTests": [
+        { "id": "t-cd-c01-v1", "kind": "visible", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('FROM node:18-alpine\\nWORKDIR /app\\nFROM nginx:latest')));", "expectedOutput": "[\"node:18-alpine\",\"nginx:latest\"]" },
+        { "id": "t-cd-c01-v2", "kind": "visible", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('FROM python:3.11-slim as builder\\nRUN pip install -r req.txt')));", "expectedOutput": "[\"python:3.11-slim\"]" },
+        { "id": "t-cd-c01-v3", "kind": "visible", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('RUN echo hello')));", "expectedOutput": "[]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-c01-h1", "kind": "hidden", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('  from   golang:1.21-alpine  \\nENV CGO_ENABLED=0')));", "expectedOutput": "[\"golang:1.21-alpine\"]", "weight": 1.0 },
+        { "id": "t-cd-c01-h2", "kind": "hidden", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('FROM ubuntu:22.04\\nFROM debian:bookworm\\nFROM alpine:3.18')));", "expectedOutput": "[\"ubuntu:22.04\",\"debian:bookworm\",\"alpine:3.18\"]", "weight": 1.0 },
+        { "id": "t-cd-c01-h3", "kind": "hidden", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('# FROM comment\\nFROM alpine:3.19')));", "expectedOutput": "[\"alpine:3.19\"]", "weight": 1.0 },
+        { "id": "t-cd-c01-h4", "kind": "hidden", "input": "const { parseDockerfile } = require('./solution'); console.log(parseDockerfile('').length);", "expectedOutput": "0", "weight": 1.0 },
+        { "id": "t-cd-c01-h5", "kind": "hidden", "input": "const { parseDockerfile } = require('./solution'); console.log(JSON.stringify(parseDockerfile('FROM --platform=linux/amd64 node:20')));", "expectedOutput": "[\"node:20\"]", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-cd-code-02",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `validatePodLimits(podSpec)` that checks if every container in `podSpec.containers` defines both `resources.limits.cpu` and `resources.limits.memory`. Return `{ valid: boolean, missing: string[] }` where missing lists container names lacking limits.",
+      "starterCode": "function validatePodLimits(podSpec) {\n  // Your code here\n}\n\nmodule.exports = { validatePodLimits };",
+      "visibleTests": [
+        { "id": "t-cd-c02-v1", "kind": "visible", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'web', resources: { limits: { cpu: '500m', memory: '512Mi' } } }] }; console.log(validatePodLimits(spec).valid);", "expectedOutput": "true" },
+        { "id": "t-cd-c02-v2", "kind": "visible", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'sidecar' }] }; console.log(JSON.stringify(validatePodLimits(spec)));", "expectedOutput": "{\"valid\":false,\"missing\":[\"sidecar\"]}" },
+        { "id": "t-cd-c02-v3", "kind": "visible", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [] }; console.log(validatePodLimits(spec).valid);", "expectedOutput": "true" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-c02-h1", "kind": "hidden", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'c1', resources: { limits: { cpu: '1' } } }, { name: 'c2' }] }; console.log(validatePodLimits(spec).missing.join(','));", "expectedOutput": "c1,c2", "weight": 1.0 },
+        { "id": "t-cd-c02-h2", "kind": "hidden", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'ok', resources: { limits: { cpu: '100m', memory: '128Mi' } } }] }; console.log(validatePodLimits(spec).missing.length);", "expectedOutput": "0", "weight": 1.0 },
+        { "id": "t-cd-c02-h3", "kind": "hidden", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'a' }, { name: 'b', resources: { limits: { memory: '1Gi' } } }] }; console.log(validatePodLimits(spec).valid);", "expectedOutput": "false", "weight": 1.0 },
+        { "id": "t-cd-c02-h4", "kind": "hidden", "input": "const { validatePodLimits } = require('./solution'); console.log(validatePodLimits({}).valid);", "expectedOutput": "true", "weight": 1.0 },
+        { "id": "t-cd-c02-h5", "kind": "hidden", "input": "const { validatePodLimits } = require('./solution'); const spec = { containers: [{ name: 'app', resources: { requests: { cpu: '1' } } }] }; console.log(validatePodLimits(spec).missing[0]);", "expectedOutput": "app", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-cd-code-03",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `parseArn(arnString)` that parses an AWS Amazon Resource Name into its component parts `{ partition, service, region, accountId, resource }`. Return null if the string is not a valid ARN (`arn:partition:service:region:account-id:resource`).",
+      "starterCode": "function parseArn(arnString) {\n  // Your code here\n}\n\nmodule.exports = { parseArn };",
+      "visibleTests": [
+        { "id": "t-cd-c03-v1", "kind": "visible", "input": "const { parseArn } = require('./solution'); console.log(JSON.stringify(parseArn('arn:aws:s3:::my-bucket')));", "expectedOutput": "{\"partition\":\"aws\",\"service\":\"s3\",\"region\":\"\",\"accountId\":\"\",\"resource\":\"my-bucket\"}" },
+        { "id": "t-cd-c03-v2", "kind": "visible", "input": "const { parseArn } = require('./solution'); console.log(JSON.stringify(parseArn('arn:aws:iam::123456789012:role/AppRole')));", "expectedOutput": "{\"partition\":\"aws\",\"service\":\"iam\",\"region\":\"\",\"accountId\":\"123456789012\",\"resource\":\"role/AppRole\"}" },
+        { "id": "t-cd-c03-v3", "kind": "visible", "input": "const { parseArn } = require('./solution'); console.log(parseArn('invalid-arn'));", "expectedOutput": "null" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-c03-h1", "kind": "hidden", "input": "const { parseArn } = require('./solution'); const p = parseArn('arn:aws:ec2:us-east-1:111122223333:instance/i-12345'); console.log(p.service, p.region);", "expectedOutput": "ec2 us-east-1", "weight": 1.0 },
+        { "id": "t-cd-c03-h2", "kind": "hidden", "input": "const { parseArn } = require('./solution'); console.log(parseArn(''));", "expectedOutput": "null", "weight": 1.0 },
+        { "id": "t-cd-c03-h3", "kind": "hidden", "input": "const { parseArn } = require('./solution'); console.log(parseArn('arn:aws-cn:sqs:cn-north-1:12345:queue').partition);", "expectedOutput": "aws-cn", "weight": 1.0 },
+        { "id": "t-cd-c03-h4", "kind": "hidden", "input": "const { parseArn } = require('./solution'); console.log(parseArn('arn:aws:lambda:eu-west-1:999:function:handler:v1').resource);", "expectedOutput": "function:handler:v1", "weight": 1.0 },
+        { "id": "t-cd-c03-h5", "kind": "hidden", "input": "const { parseArn } = require('./solution'); console.log(parseArn('arn:aws:s3'));", "expectedOutput": "null", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-cd-code-04",
+      "skillId": "sk-terraform",
+      "skillName": "Terraform (IaC)",
+      "category": "Cloud & Infrastructure",
+      "type": "code",
+      "difficulty": 2,
+      "language": "javascript",
+      "prompt": "Write a function `detectDrift(desiredState, actualState)` that returns an array of resource IDs that exist in `desiredState` but either differ in configuration from `actualState` or are missing completely from `actualState`.",
+      "starterCode": "function detectDrift(desiredState, actualState) {\n  // Your code here\n}\n\nmodule.exports = { detectDrift };",
+      "visibleTests": [
+        { "id": "t-cd-c04-v1", "kind": "visible", "input": "const { detectDrift } = require('./solution'); const d = { 's3_1': { size: 10 } }; const a = { 's3_1': { size: 10 } }; console.log(JSON.stringify(detectDrift(d, a)));", "expectedOutput": "[]" },
+        { "id": "t-cd-c04-v2", "kind": "visible", "input": "const { detectDrift } = require('./solution'); const d = { 'r1': { v: 1 } }; const a = { 'r1': { v: 2 } }; console.log(JSON.stringify(detectDrift(d, a)));", "expectedOutput": "[\"r1\"]" },
+        { "id": "t-cd-c04-v3", "kind": "visible", "input": "const { detectDrift } = require('./solution'); const d = { 'r1': { v: 1 } }; const a = {}; console.log(JSON.stringify(detectDrift(d, a)));", "expectedOutput": "[\"r1\"]" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-c04-h1", "kind": "hidden", "input": "const { detectDrift } = require('./solution'); const d = { a: { x: 1 }, b: { y: 2 } }; const a = { a: { x: 1 }, b: { y: 99 } }; console.log(detectDrift(d, a).join(','));", "expectedOutput": "b", "weight": 1.0 },
+        { "id": "t-cd-c04-h2", "kind": "hidden", "input": "const { detectDrift } = require('./solution'); console.log(detectDrift({}, {}).length);", "expectedOutput": "0", "weight": 1.0 },
+        { "id": "t-cd-c04-h3", "kind": "hidden", "input": "const { detectDrift } = require('./solution'); const d = { k1: { tag: 'prod' } }; const a = { k1: { tag: 'prod' }, k2: { tag: 'dev' } }; console.log(detectDrift(d, a).length);", "expectedOutput": "0", "weight": 1.0 },
+        { "id": "t-cd-c04-h4", "kind": "hidden", "input": "const { detectDrift } = require('./solution'); const d = { r1: { a: 1, b: 2 } }; const a = { r1: { a: 1 } }; console.log(detectDrift(d, a)[0]);", "expectedOutput": "r1", "weight": 1.0 },
+        { "id": "t-cd-c04-h5", "kind": "hidden", "input": "const { detectDrift } = require('./solution'); const d = { x: { list: [1, 2] } }; const a = { x: { list: [1, 2] } }; console.log(detectDrift(d, a).length);", "expectedOutput": "0", "weight": 1.0 }
+      ]
+    }
+  ],
+  "sqlTasks": [
+    {
+      "id": "q-cd-sql-01",
+      "skillId": "sk-aws",
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud & Infrastructure",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given `cloud_instances(id, instance_type, region, status, cost_per_hour)`, write a query that calculates the total running cost per hour grouped by `region`, ordered by total cost DESC.",
+      "starterCode": "-- Write SQL query here\nSELECT region, SUM(cost_per_hour) as hourly_cost\nFROM cloud_instances\n...",
+      "visibleTests": [
+        { "id": "t-cd-s01-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM cloud_instances WHERE status='running';", "expectedOutput": "5" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-s01-h1", "kind": "hidden", "input": "SELECT region FROM cloud_instances WHERE status='running' GROUP BY region ORDER BY SUM(cost_per_hour) DESC LIMIT 1;", "expectedOutput": "us-east-1", "weight": 1.0 },
+        { "id": "t-cd-s01-h2", "kind": "hidden", "input": "SELECT count(*) FROM (SELECT region FROM cloud_instances WHERE status='running' GROUP BY region);", "expectedOutput": "2", "weight": 1.0 }
+      ]
+    },
+    {
+      "id": "q-cd-sql-02",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "sql",
+      "difficulty": 2,
+      "language": "sql",
+      "prompt": "Given table `pod_restart_events(id, namespace, pod_name, exit_code, created_at)`, write a query to find all pods that had exit_code != 0 and restarted more than 2 times.",
+      "starterCode": "-- Write SQL query here\nSELECT namespace, pod_name, COUNT(*) AS crash_count\nFROM pod_restart_events\n...",
+      "visibleTests": [
+        { "id": "t-cd-s02-v1", "kind": "visible", "input": "SELECT COUNT(*) FROM pod_restart_events WHERE exit_code != 0;", "expectedOutput": "6" }
+      ],
+      "hiddenTests": [
+        { "id": "t-cd-s02-h1", "kind": "hidden", "input": "SELECT COUNT(*) FROM (SELECT pod_name FROM pod_restart_events WHERE exit_code != 0 GROUP BY namespace, pod_name HAVING count(*) > 2);", "expectedOutput": "1", "weight": 1.0 }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "q-cd-proj-01",
+      "skillId": "sk-k8s",
+      "skillName": "Kubernetes",
+      "category": "Cloud & Infrastructure",
+      "type": "project",
+      "difficulty": 3,
+      "prompt": "Mini-Project: Production Kubernetes Deployment Architecture.\nDesign a production-grade Kubernetes manifest bundle for a microservice:\n1. Deployment with 3 replicas, rolling update strategy, and non-root securityContext.\n2. ConfigMap and Secret volume mounts.\n3. Liveness and Readiness HTTP probes.\n4. Resource requests and limits defined.\n5. Service and PodDisruptionBudget specifications.",
+      "rubric": [
+        { "key": "functionality", "label": "Deployment & Service Architecture", "weight": 35, "description": "Proper Deployment spec, Service selectors, port bindings, and rolling update strategy." },
+        { "key": "correctness", "label": "Security Context & Isolation", "weight": 25, "description": "Enforces runAsNonRoot, readOnlyRootFilesystem, and drops unnecessary Linux capabilities." },
+        { "key": "quality", "label": "Health Probes & Resource Sizing", "weight": 20, "description": "Correct liveness and readiness probe configurations and well-formed CPU/memory requests and limits." },
+        { "key": "problem_solving", "label": "High Availability & Resilience", "weight": 20, "description": "Includes PodDisruptionBudget and anti-affinity rules to survive node evictions." }
+      ]
+    }
+  ]
+}

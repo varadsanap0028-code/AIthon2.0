@@ -1,0 +1,72 @@
+{
+  "id": "asmt-golden-fixture-001",
+  "domainId": "web-dev",
+  "targetRole": "Full-Stack Developer",
+  "overallScore": 85,
+  "knowledgeScore": 80,
+  "practicalScore": 90,
+  "completedAt": "2026-10-17",
+  "categoryScores": [
+    {
+      "category": "Frontend",
+      "score": 85,
+      "totalQuestions": 4,
+      "correctCount": 3,
+      "level": "Advanced"
+    },
+    {
+      "category": "Backend",
+      "score": 80,
+      "totalQuestions": 3,
+      "correctCount": 2,
+      "level": "Advanced"
+    }
+  ],
+  "skillScores": [
+    {
+      "skillName": "React",
+      "category": "Frontend",
+      "score": 88,
+      "demonstratedLevel": 4,
+      "levelLabel": "Advanced",
+      "knowledgeScore": 85,
+      "practicalScore": 90,
+      "totalEvaluated": 3
+    },
+    {
+      "skillName": "Node.js",
+      "category": "Backend",
+      "score": 80,
+      "demonstratedLevel": 4,
+      "levelLabel": "Advanced",
+      "knowledgeScore": 75,
+      "practicalScore": 85,
+      "totalEvaluated": 2
+    }
+  ],
+  "strengths": [
+    "React",
+    "Node.js"
+  ],
+  "improvements": [],
+  "answersSummary": [
+    {
+      "questionId": "q-react-01",
+      "question": "What hook handles component side effects?",
+      "skillName": "React",
+      "selectedOption": 1,
+      "correctOption": 1,
+      "isCorrect": true,
+      "explanation": "useEffect manages side-effects."
+    }
+  ],
+  "practicalSummary": [
+    {
+      "taskId": "task-node-01",
+      "taskTitle": "Express Middleware Implementation",
+      "skillName": "Node.js",
+      "isPassed": true,
+      "feedback": "All test assertions satisfied."
+    }
+  ]
+}
